@@ -36,7 +36,7 @@ const InvoicePreview = ({ products, contact, subTotal, total, discount }: Invoic
 							<p className='text-sm text-neutral-500'>Descripción</p>
 						</div>
 					</div>
-					{products.length > 0 &&
+					{products &&
 						products.map((product, index) => (
 							<div 
                 key={product?.id}
