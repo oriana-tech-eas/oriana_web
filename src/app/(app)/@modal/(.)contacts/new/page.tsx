@@ -36,7 +36,7 @@ const ContactsModal = () => {
         name: data.name,
         email: data.email,
         phone: data.phone,
-        contacts_type: data.contacts_type,
+        contacts_type: data.contacts_type as "customer" | "supplier",
         address: data.address,
         document: data.document,
         setErrors

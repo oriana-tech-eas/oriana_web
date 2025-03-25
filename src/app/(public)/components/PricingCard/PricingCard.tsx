@@ -41,12 +41,14 @@ const PricingCard = ({
           ))
         }
       </ul>
-      <Button variant={buttonVariant} className="w-full">
-        {buttonText}
-      </Button>
-      <p className="text-sm text-neutral-500 text-center mt-2">
-        {description}
-      </p>
+      <div className="bottom-0">
+        <Button variant={buttonVariant} className="w-full">
+          {buttonText}
+        </Button>
+        <p className="text-sm text-neutral-500 text-center mt-2">
+          {description}
+        </p>
+      </div>
     </div>  
   )
 }

@@ -39,9 +39,9 @@ const PricingSection = () => {
 					features={[
 						'Facturación simplificada',
 						'1 Usuario',
-						'100 Facturas mensuales',
-						'80 Clientes',
-						'80 Productos',
+						'100 Transacciones mensuales',
+						'20 Clientes',
+						'50 Productos',
 						'Soporte básico',
 					]}
 					buttonText='Prueba gratuita de 30 días'
@@ -51,14 +51,15 @@ const PricingSection = () => {
 					title='Profesional'
 					description='Para pequeñas empresas'
 					price={
-            isMonthly ? '351.000' : '390.000'
+            isMonthly ? '349.000' : '390.000'
           }
 					recommended={true}
 					features={[
 						'Facturación simplificada',
-						'Depósitos',
-						'Sucursales',
-						'10 Usuarios',
+						'1000 Transacciones mensuales',
+						'100 Clientes',
+						'100 Productos',
+						'3 Usuarios',
 						'Soporte prioritario',
 					]}
 					buttonText='Prueba gratuita de 30 días'
@@ -68,17 +69,26 @@ const PricingSection = () => {
 					title='Empresarial'
 					description='Para empresas en crecimiento'
 					price={
-            isMonthly ? '608.000' : '690.000' 
+            isMonthly ? '799.000' : '890.000' 
           }
 					recommended={false}
 					features={[
 						'Todo el plan profesional',
-						'Usuarios ilimitados',
+						'5000 Transacciones mensuales',
+						'500 Clientes',
+						'500 Productos',
+						'10 Usuarios',
 						'Soporte 24/7',
+						'Analíticas avanzadas',
 					]}
 					buttonText='Prueba gratuita de 30 días'
 					buttonVariant='secondary'
 				/>
+			</div>
+			<div className='text-center mt-8'>	
+				<p className='text-neutral-400 text-sm italic'>
+					Para usuarios adicionales, se cobrará un monto adicional. Las tarifas pueden variar sin previo aviso.
+				</p>
 			</div>
 		</section>
 	);

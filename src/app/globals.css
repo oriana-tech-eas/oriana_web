@@ -7,3 +7,15 @@
     text-wrap: balance;
   }
 }
+
+.title-2 {
+  @apply text-4xl font-bold;
+}
+
+.title-3 {
+  @apply text-6xl font-bold;
+}
+
+.container {
+  @apply max-w-5xl mx-auto px-4;
+}
