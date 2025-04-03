@@ -5,14 +5,14 @@ import { ArrowDownCircleIcon, ArrowUpCircleIcon, ChartBarIcon, CubeIcon, UserGro
 const MainNavigation = () => {
 
   const menuItems = [
-    { href: '/dashboard', icon: HomeIcon, text: 'Inicio' },
-    { href: '/sales', icon: ArrowUpCircleIcon, text: 'Ingresos' },
-    { href: '/expenses', icon: ArrowDownCircleIcon, text: 'Gastos' },
-    { href: '/quotes', icon: DocumentChartBarIcon, text: 'Cotizaciones' },
-    { href: '/contacts', icon: UserGroupIcon, text: 'Contactos' },
-    { href: '/products', icon: CubeIcon, text: 'Productos' },
-    { href: '/reports', icon: ChartBarIcon, text: 'Reportes' },
-    { href: '/preferences/categories', icon: Cog8ToothIcon, text: 'Preferencias' },
+    { href: '/app/dashboard', icon: HomeIcon, text: 'Inicio' },
+    { href: '/app/sales', icon: ArrowUpCircleIcon, text: 'Ingresos' },
+    { href: '/app/expenses', icon: ArrowDownCircleIcon, text: 'Gastos' },
+    { href: '/app/quotes', icon: DocumentChartBarIcon, text: 'Cotizaciones' },
+    { href: '/app/contacts', icon: UserGroupIcon, text: 'Contactos' },
+    { href: '/app/products', icon: CubeIcon, text: 'Productos' },
+    { href: '/app/reports', icon: ChartBarIcon, text: 'Reportes' },
+    { href: '/app/preferences/categories', icon: Cog8ToothIcon, text: 'Preferencias' },
   ]
   
   return (

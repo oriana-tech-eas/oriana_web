@@ -12,7 +12,7 @@ import Input from '@/components/Input/Input'
 const LoginForm = () => {
   const { login } = useAuth({
     middleware: 'guest',
-    redirectIfAuthenticated: '/sales'
+    redirectIfAuthenticated: '/app/dashboard',
   })
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
