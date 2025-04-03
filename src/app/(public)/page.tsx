@@ -8,7 +8,7 @@ export default function Home() {
     <main>
       <section className="flex items-center flex-col justify-center pt-56">
         <div className="mb-12 text-center flex flex-col items-center justify-center max-w-4xl space-y-4">
-          <h1 className="text-6xl font-bold">Simplifica la gestión de tu negocio con <span className="bg-gradient-to-b from-rose-500 to-orange-300 text-transparent bg-clip-text">Printit</span></h1>
+          <h1 className="text-6xl font-bold">Simplifica la gestión de tu negocio con <span className="bg-gradient-to-b from-rose-500 to-rose-400 text-transparent bg-clip-text">Oriana Market</span></h1>
           <p className="text-neutral-600 text-xl">Facturación, ventas, stock y más, todo en un solo lugar.</p>
           <Button href="/register" variant="primary">Crear cuenta gratis</Button>
         </div>

@@ -6,7 +6,7 @@ import { Providers } from "./provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Printit: Su empresa inteligente",
+  title: "Oriana Market: Su empresa inteligente",
   description: "Facturación y contabilidad para empresas pequeñas y medianas.",
 };
 

@@ -3,7 +3,7 @@ const WhyPrintitSection = () => {
 		<section className='py-28 bg-neutral-100'>
 			<div className='max-w-6xl mx-auto'>
 				<h2 className='title-2 mb-8 text-center'>
-					¿Por qué elegir Printit?
+					¿Por qué elegir Oriana?
 				</h2>
 				<ul className='grid grid-cols-6 grid-rows-6 gap-6'>
 					<li className='border border-neutral-300 flex flex-col justify-end rounded-xl p-5 bg-white col-span-2 row-span-3 min-h-72'>

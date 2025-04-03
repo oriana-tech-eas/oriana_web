@@ -36,7 +36,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex items-center justify-between mt-8 border-t pt-3 text-sm">
-          <p className="text-neutral-600">© 2025 Printit. Todos los derechos reservados.</p>
+          <p className="text-neutral-600">© 2025 Oriana Tech E.A.S. Todos los derechos reservados.</p>
           <div className="flex gap-4">
             <a href="/terms">Términos y condiciones</a>
             <a href="/privacy">Política de privacidad</a>

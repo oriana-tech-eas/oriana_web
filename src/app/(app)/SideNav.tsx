@@ -12,8 +12,8 @@ const SideNav = () => {
         <Link href={'/sales'}>
           <Image 
             className="flex mt-5 ml-4 mb-6"
-            src="/printit.svg"
-            width={30} 
+            src="/brand/oriana-market.svg"
+            width={100} 
             height={50} 
             alt="Printit Logo"
             priority  
