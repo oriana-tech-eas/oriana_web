@@ -43,41 +43,32 @@ export default function IntegrationSection({ products }: ProductInfo) {
             </div>
           </div>
           <div className="relative">
-            <div className="bg-gray-100 rounded-lg p-8">
+            <div className="bg-gray-100 rounded-lg p-5">
               <div className="relative h-80 overflow-hidden">
                 {/* Illustration of connected apps */}
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                   <div className="w-32 h-32 bg-white rounded-full shadow-lg flex items-center justify-center z-10 relative">
                     <Image src={'/brand/oriana-tech.svg'} alt={'Oriana tech'} width={90} height={32} />
                   </div>
-                  <div className="absolute top-0 left-0 -mt-20 -ml-48 w-24 h-24 bg-blue-100 rounded-lg shadow-md flex items-center justify-center transform rotate-6">
-                    <div className="h-12 w-12 rounded-md bg-blue-500 text-white flex items-center justify-center">
+                  <div className={`absolute top-0 left-0 -mt-20 -ml-48 w-24 h-24 ${products[0].lightColor} rounded-lg shadow-md flex items-center justify-center transform rotate-6`}>
+                    <div className="h-12 w-12 rounded-md bg-white border flex items-center justify-center">
                       <Image src={products[0].icon} alt={products[0].name} width={32} height={32} />
                     </div>
                   </div>
-                  <div className="absolute top-0 right-0 -mt-16 -mr-48 w-24 h-24 bg-indigo-100 rounded-lg shadow-md flex items-center justify-center transform -rotate-12">
-                    <div className="h-12 w-12 rounded-md bg-indigo-500 text-white flex items-center justify-center">
+                  <div className={`absolute top-0 right-0 -mt-16 -mr-48 w-24 h-24 ${products[1].lightColor} rounded-lg shadow-md flex items-center justify-center transform -rotate-12`}>
+                    <div className="h-12 w-12 rounded-md bg-white border flex items-center justify-center">
                       <Image src={products[1].icon} alt={products[1].name} width={32} height={32} />
                     </div>
                   </div>
-                  <div className="absolute bottom-0 left-0 -mb-16 -ml-40 w-24 h-24 bg-emerald-100 rounded-lg shadow-md flex items-center justify-center transform -rotate-12">
-                    <div className="h-12 w-12 rounded-md bg-emerald-500 text-white flex items-center justify-center">
+                  <div className={`absolute bottom-0 left-0 -mb-16 -ml-40 w-24 h-24 ${products[2].lightColor} rounded-lg shadow-md flex items-center justify-center transform -rotate-12`}>
+                    <div className="h-12 w-12 rounded-md bg-white border flex items-center justify-center">
                       <Image src={products[2].icon} alt={products[2].name} width={32} height={32} />
                     </div>
                   </div>
-                  <div className="absolute bottom-0 right-0 -mb-24 -mr-36 w-24 h-24 bg-purple-100 rounded-lg shadow-md flex items-center justify-center transform rotate-12">
-                    <div className="h-12 w-12 rounded-md bg-purple-500 text-white flex items-center justify-center">
+                  <div className={`absolute bottom-0 right-0 -mb-24 -mr-36 w-24 h-24 ${products[3].lightColor} rounded-lg shadow-md flex items-center justify-center transform rotate-12`}>
+                    <div className="h-12 w-12 rounded-md bg-white border flex items-center justify-center">
                       <Image src={products[3].icon} alt={products[3].name} width={32} height={32} />
                     </div>
-                  </div>
-                  {/* Connection lines */}
-                  <div className="absolute top-0 left-0 right-0 bottom-0 pointer-events-none">
-                    <svg className="w-full h-full" viewBox="0 0 200 200">
-                      <line x1="100" y1="100" x2="40" y2="40" stroke="#3b82f6" strokeWidth="2" strokeDasharray="4" />
-                      <line x1="100" y1="100" x2="160" y2="40" stroke="#6366f1" strokeWidth="2" strokeDasharray="4" />
-                      <line x1="100" y1="100" x2="40" y2="160" stroke="#10b981" strokeWidth="2" strokeDasharray="4" />
-                      <line x1="100" y1="100" x2="160" y2="160" stroke="#8b5cf6" strokeWidth="2" strokeDasharray="4" />
-                    </svg>
                   </div>
                 </div>
               </div>
