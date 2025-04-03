@@ -1,14 +1,19 @@
 'use client'
 
-import { useCreateContact } from "@/app/(app)/contacts/_domain/contacts";
-import Button from "@/components/Button/Button";
-import Input from "@/components/Input/Input";
-import InputError from "@/components/InputError/InputError";
-import InputLabel from "@/components/InputLabel/InputLabel";
-import Modal from "@/components/Modal/Modal";
-import React, { useState } from "react";
+import { useRouter } from 'next/navigation'
+import { useCreateContact } from "@/app/(app)/contacts/_domain/contacts"
+import Button from "@/components/Button/Button"
+import Input from "@/components/Input/Input"
+import InputError from "@/components/InputError/InputError"
+import InputLabel from "@/components/InputLabel/InputLabel"
+import Modal from "@/components/Modal/Modal"
+import React, { useState } from "react"
+import { useContactsContext } from '@/app/(app)/_context/ContactsContext'
+import { mutate } from 'swr'
 
-const ContactsModal = () => {
+const ContactsNewPage = () => {
+  const router = useRouter()
+  const { refreshContacts } = useContactsContext()
   const { createContact } = useCreateContact()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [errors, setErrors] = useState({
@@ -19,7 +24,7 @@ const ContactsModal = () => {
     document: []
   })
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     const formData = new FormData(e.currentTarget)
@@ -31,8 +36,9 @@ const ContactsModal = () => {
       address: formData.get('address') as string,
       document: formData.get('document') as string,
     }
-    try{
-      createContact({
+    
+    try {
+      await createContact({
         name: data.name,
         email: data.email,
         phone: data.phone,
@@ -41,9 +47,15 @@ const ContactsModal = () => {
         document: data.document,
         setErrors
       })
+      
+      // Use both direct mutation and context method for maximum compatibility
+      mutate((key) => typeof key === 'string' && key.startsWith('/api/contacts'))
+      refreshContacts()
+      
+      // Navigate back
+      router.back()
     } catch (error) {
-      console.error(error)
-    } finally {
+      console.error('Error creating contact:', error)
       setIsSubmitting(false)
     }
   }
@@ -99,7 +111,7 @@ const ContactsModal = () => {
             <InputError messages={errors?.document} className='mt-2'/>
           </div>
           <div className='mb-2'>
-            <Button variant='primary' type='submit'>
+            <Button variant='primary' type='submit' disabled={isSubmitting}>
               {
                 isSubmitting ? 'Guardando...' : 'Guardar'
               }
@@ -107,7 +119,7 @@ const ContactsModal = () => {
           </div>
         </form>
     </Modal>
-  );
+  )
 }
 
-export default ContactsModal;
+export default ContactsNewPage

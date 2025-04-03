@@ -39,7 +39,7 @@ const NewSale = () => {
 			<div className='grid grid-cols-12'>
 				<div className='col-span-5'>
 					<Button variant='secondary' href='/sales' className='w-fit'>
-						<ArrowLeftIcon className='size-5 mr-2' />
+						<ArrowLeftIcon 	className='size-5 mr-2' />
 						Volver
 					</Button>
 					<form className='mt-8'>

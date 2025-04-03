@@ -17,7 +17,6 @@ const Account = () => {
           <span className='bg-violet-100 text-violet-500 p-1 rounded'>
             @{user?.username}
           </span>
-          <p className='text-neutral-500'>{user?.company?.name || 'Empresa'}</p>
         </div>
         <div className="py-5 dark:text-neutral-50">
           <div className='flex'>

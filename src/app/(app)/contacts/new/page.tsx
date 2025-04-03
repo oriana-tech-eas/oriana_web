@@ -7,8 +7,13 @@ import React, { useState } from 'react'
 import { useCreateContact } from '../_domain/contacts'
 import InputError from '@/components/InputError/InputError'
 import Button from '@/components/Button/Button'
+import { useContactsContext } from '@/app/(app)/_context/ContactsContext'
+import { mutate } from 'swr'
+import { useRouter } from 'next/navigation'
 
 const NewCustomer = () => {
+  const router = useRouter()
+  const { refreshContacts } = useContactsContext()
   const { createContact } = useCreateContact()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [errors, setErrors] = useState({
@@ -18,7 +23,7 @@ const NewCustomer = () => {
     document: []
   })
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     const formData = new FormData(e.currentTarget)
@@ -30,19 +35,26 @@ const NewCustomer = () => {
       address: formData.get('address') as string,
       document: formData.get('document') as string,
     }
-    try{
-      createContact({
+    
+    try {
+      await createContact({
         name: data.name,
         email: data.email,
         phone: data.phone,
-        contacts_type: data.contacts_type,
+        contacts_type: data.contacts_type as "customer" | "supplier",
         address: data.address,
         document: data.document,
         setErrors
       })
+      
+      // Use both direct mutation and context method for maximum compatibility
+      mutate((key) => typeof key === 'string' && key.startsWith('/api/contacts'))
+      refreshContacts()
+      
+      // Navigate to contacts list
+      router.push('/contacts')
     } catch (error) {
-      console.error(error)
-    } finally {
+      console.error('Error creating contact:', error)
       setIsSubmitting(false)
     }
   }

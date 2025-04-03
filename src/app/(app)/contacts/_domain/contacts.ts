@@ -65,10 +65,9 @@ export const useDeleteContact = () => {
 
 export const useCreateContact = () => {
   const csrf = () => axios.get('/sanctum/csrf-cookie')
-  const router = useRouter()
 
   const createContact = async ({ setErrors, ...props }: {
-    setErrors: (errors: string[]) => void,
+    setErrors: React.Dispatch<React.SetStateAction<any>>,
     name: string,
     email: string,
     phone: string,
@@ -80,13 +79,12 @@ export const useCreateContact = () => {
 
     setErrors([])
 
-    axios
+    // Return the promise instead of using router.push directly
+    return axios
       .post('/api/contacts', props)
-      .then(() => {
-        router.push('/contacts')
-      })
       .catch(error => {
-          setErrors(error.response.data.errors)
+        setErrors(error.response.data.errors)
+        throw error // Re-throw to allow handling in the component
       })
   }
 
