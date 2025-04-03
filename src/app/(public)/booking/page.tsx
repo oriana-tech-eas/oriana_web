@@ -1,81 +1,77 @@
-import Button from "@/components/Button/Button";
 import Link from "next/link";
+import SharedHeroSection from "../_shared/components/SharedHeroSection";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 export default function Home() {
   return (
     <div className="bg-white">
     {/* Hero Section */}
-    <div className="relative bg-gradient-to-r from-purple-800 to-pink-600">
-      <div className="container mx-auto px-6 py-24 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="text-white">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-              Oriana Booking
-            </h1>
-            <p className="mt-6 text-lg leading-8">
-              Appointment manager for services and individuals. Streamline your scheduling process and never miss an appointment again.
-            </p>
-            <div className="mt-10 flex items-center gap-x-6">
-              <Link 
-                href="/app/booking" 
-                className="rounded-md bg-white px-6 py-3 text-base font-semibold text-purple-700 shadow-sm hover:bg-purple-50"
-              >
-                Get Started
-              </Link>
-              <Link 
-                href="#features" 
-                className="text-base font-semibold leading-6 text-white hover:text-purple-100"
-              >
-                Learn more <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-          </div>
-          <div className="hidden lg:block">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 shadow-xl">
-              <div className="grid grid-cols-7 gap-2">
-                {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day, idx) => (
-                  <div key={idx} className="text-center text-white font-medium py-2">
-                    {day}
-                  </div>
-                ))}
-                
-                {Array.from({ length: 35 }).map((_, idx) => {
-                  // Randomly generate some appointments for visual effect
-                  const hasAppointment = idx % 7 !== 0 && idx % 5 === 0;
-                  const isToday = idx === 15;
-                  
-                  return (
-                    <div 
-                      key={idx} 
-                      className={`rounded-md p-2 text-center ${
-                        isToday 
-                          ? 'bg-white text-purple-800 font-bold' 
-                          : hasAppointment 
-                            ? 'bg-purple-500/50' 
-                            : 'bg-white/5'
-                      }`}
-                    >
-                      {idx + 1}
-                      {hasAppointment && (
-                        <div className="mt-1 h-1.5 w-full bg-white/50 rounded-full"></div>
-                      )}
-                    </div>
-                  );
-                })}
+    <SharedHeroSection colors={['from-amber-700', 'to-amber-600']}>
+      <div className="text-white">
+        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+          Oriana Booking
+        </h1>
+        <p className="mt-6 text-lg leading-8">
+          Gestor de citas para servicios e individuos.
+          Optimice su proceso de programación y nunca vuelva a perder una cita.
+        </p>
+        <div className="mt-10 flex items-center gap-x-6">
+          <Link 
+            href="/app/booking" 
+            className="rounded-md bg-white px-6 py-3 text-base font-semibold text-amber-700 shadow-sm hover:bg-amber-50"
+          >
+            Comenzar ahora
+          </Link>
+          <Link 
+            href="#features" 
+            className="text-base font-semibold leading-6 text-white hover:text-amber-100"
+          >
+            Saber más <ArrowRightIcon className="h-4 w-4 inline-block ml-1" />
+          </Link>
+        </div>
+      </div>
+      <div className="hidden lg:block">
+        <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 shadow-xl">
+          <div className="grid grid-cols-7 gap-2">
+            {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day, idx) => (
+              <div key={idx} className="text-center text-white font-medium py-2">
+                {day}
               </div>
-            </div>
+            ))}
+            
+            {Array.from({ length: 35 }).map((_, idx) => {
+              // Randomly generate some appointments for visual effect
+              const hasAppointment = idx % 7 !== 0 && idx % 5 === 0;
+              const isToday = idx === 15;
+              
+              return (
+                <div 
+                  key={idx} 
+                  className={`rounded-md p-2 text-center ${
+                    isToday 
+                      ? 'bg-white text-amber-800 font-bold' 
+                      : hasAppointment 
+                        ? 'bg-amber-500/50' 
+                        : 'bg-white/5'
+                  }`}
+                >
+                  {idx + 1}
+                  {hasAppointment && (
+                    <div className="mt-1 h-1.5 w-full bg-white/50 rounded-full"></div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
-      
-      <div className="absolute inset-x-0 bottom-0 h-16 bg-white" style={{ clipPath: 'polygon(0 100%, 100% 100%, 100% 0, 0 100%)' }}></div>
-    </div>
+    </SharedHeroSection>
 
     {/* Features Section */}
     <div id="features" className="py-24 bg-white">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-purple-600">Powerful Scheduling</h2>
+          <h2 className="text-base font-semibold leading-7 text-amber-600">Powerful Scheduling</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Streamline your appointment management
           </p>
@@ -108,7 +104,7 @@ export default function Home() {
               },
             ].map((feature, idx) => (
               <div key={idx} className="relative pl-16">
-                <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-lg bg-purple-600">
+                <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-lg bg-amber-600">
                   <span className="text-xl text-white">{feature.icon}</span>
                 </div>
                 <h3 className="text-lg font-semibold leading-8 text-gray-900">{feature.title}</h3>
@@ -121,10 +117,10 @@ export default function Home() {
     </div>
 
     {/* Booking Flow */}
-    <div className="bg-purple-50 py-24">
+    <div className="bg-amber-50 py-24">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center mb-16">
-          <h2 className="text-base font-semibold leading-7 text-purple-600">Simple Booking Flow</h2>
+          <h2 className="text-base font-semibold leading-7 text-amber-600">Simple Booking Flow</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             How it works
           </p>
@@ -178,15 +174,15 @@ export default function Home() {
           ].map((step, idx) => (
             <div key={idx} className="relative">
               {idx < 3 && (
-                <div className="hidden md:block absolute top-20 left-full w-full h-0.5 bg-purple-200 z-0 -translate-y-1/2">
-                  <div className="absolute top-0 right-0 h-3 w-3 -mt-1 mr-1 bg-purple-400 transform rotate-45"></div>
+                <div className="hidden md:block absolute top-20 left-full w-full h-0.5 bg-amber-200 z-0 -translate-y-1/2">
+                  <div className="absolute top-0 right-0 h-3 w-3 -mt-1 mr-1 bg-amber-400 transform rotate-45"></div>
                 </div>
               )}
               <div className="bg-white rounded-lg p-6 shadow-md relative z-10">
-                <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-purple-800 mb-4">
+                <div className="h-16 w-16 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 mb-4">
                   {step.icon}
                 </div>
-                <div className="absolute top-0 right-0 -mt-3 -mr-3 bg-purple-600 text-white h-8 w-8 rounded-full flex items-center justify-center font-bold">
+                <div className="absolute top-0 right-0 -mt-3 -mr-3 bg-amber-600 text-white h-8 w-8 rounded-full flex items-center justify-center font-bold">
                   {step.step}
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900">{step.title}</h3>
@@ -205,10 +201,10 @@ export default function Home() {
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
-            <div className="bg-purple-100 rounded-lg p-8 relative">
+            <div className="bg-amber-100 rounded-lg p-8 relative">
               <div className="bg-white rounded shadow-lg p-4 mb-6">
                 <div className="flex items-center mb-3">
-                  <div className="h-4 w-4 rounded-full bg-purple-600 mr-2"></div>
+                  <div className="h-4 w-4 rounded-full bg-amber-600 mr-2"></div>
                   <div className="text-sm font-medium text-gray-800">Appointment Confirmed</div>
                 </div>
                 <div className="space-y-2">
@@ -217,7 +213,7 @@ export default function Home() {
                 </div>
               </div>
               
-              <svg className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 text-purple-400" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 text-amber-400" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14"></path>
                 <path d="M12 5l7 7-7 7"></path>
               </svg>
@@ -243,7 +239,7 @@ export default function Home() {
             <ul className="mt-8 space-y-4">
               <li className="flex items-start">
                 <div className="flex-shrink-0">
-                  <svg className="h-6 w-6 text-purple-500" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
+                  <svg className="h-6 w-6 text-amber-500" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
@@ -253,7 +249,7 @@ export default function Home() {
               </li>
               <li className="flex items-start">
                 <div className="flex-shrink-0">
-                  <svg className="h-6 w-6 text-purple-500" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
+                  <svg className="h-6 w-6 text-amber-500" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
@@ -263,7 +259,7 @@ export default function Home() {
               </li>
               <li className="flex items-start">
                 <div className="flex-shrink-0">
-                  <svg className="h-6 w-6 text-purple-500" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
+                  <svg className="h-6 w-6 text-amber-500" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
@@ -278,10 +274,10 @@ export default function Home() {
     </div>
 
     {/* Use Cases */}
-    <div className="bg-purple-50 py-24">
+    <div className="bg-amber-50 py-24">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center mb-16">
-          <h2 className="text-base font-semibold leading-7 text-purple-600">Versatile Solution</h2>
+          <h2 className="text-base font-semibold leading-7 text-amber-600">Versatile Solution</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Perfect for various industries
           </p>
@@ -321,7 +317,7 @@ export default function Home() {
             },
           ].map((useCase, idx) => (
             <div key={idx} className="bg-white rounded-lg p-6 shadow-md">
-              <div className="h-16 w-16 rounded-full bg-purple-100 flex items-center justify-center text-purple-800 mb-4">
+              <div className="h-16 w-16 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 mb-4">
                 {useCase.icon}
               </div>
               <h3 className="text-lg font-semibold text-gray-900">{useCase.title}</h3>
@@ -335,24 +331,24 @@ export default function Home() {
     </div>
 
     {/* CTA Section */}
-    <div className="bg-purple-700">
+    <div className="bg-amber-700">
       <div className="container mx-auto px-6 py-16 lg:px-8 text-center">
         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
           Ready to transform your scheduling?
         </h2>
-        <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-purple-100">
+        <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-amber-100">
           Join businesses that trust Oriana Booking to manage their appointments efficiently.
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <Link
             href="/app/booking"
-            className="rounded-md bg-white px-6 py-3 text-base font-semibold text-purple-700 shadow-sm hover:bg-purple-50"
+            className="rounded-md bg-white px-6 py-3 text-base font-semibold text-amber-700 shadow-sm hover:bg-amber-50"
           >
             Start your free trial
           </Link>
           <Link
             href="#"
-            className="text-base font-semibold leading-6 text-white hover:text-purple-200"
+            className="text-base font-semibold leading-6 text-white hover:text-amber-200"
           >
             View pricing <span aria-hidden="true">→</span>
           </Link>

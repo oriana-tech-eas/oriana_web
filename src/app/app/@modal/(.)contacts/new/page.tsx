@@ -48,11 +48,9 @@ const ContactsNewPage = () => {
         setErrors
       })
       
-      // Use both direct mutation and context method for maximum compatibility
       mutate((key) => typeof key === 'string' && key.startsWith('/api/contacts'))
       refreshContacts()
       
-      // Navigate back
       router.back()
     } catch (error) {
       console.error('Error creating contact:', error)
