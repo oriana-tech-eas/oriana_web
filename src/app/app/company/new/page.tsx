@@ -47,7 +47,7 @@ const NewCompany = () => {
     <Container>
       <div className='w-full md:max-w-lg mx-auto'>
         <div className='mb-5'>
-          <Button href='/contacts' variant='secondary' className='w-fit mb-5'>Volver</Button>
+          <Button href='/app/company' variant='secondary' className='w-fit mb-5'>Volver</Button>
           <h2 className='text-2xl font-semibold dark:text-neutral-50'>Mi empresa</h2>
         </div>      
         <form onSubmit={handleSubmit}>

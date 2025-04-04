@@ -1,9 +1,20 @@
+'use client';
+
 import Button from "@/components/Button/Button";
 import RecentTransactions from "./RecentTransactions";
+import { OnboardingProvider } from "../_context/OnboardingContext";
+import OnboardingContainer from "@/components/Onboarding/OnboardingContainer";
+import { useAuth } from "@/hooks/useAuth";
 
 const DashboardPage = () => {
+  const { user } = useAuth();
   return (
+    <OnboardingProvider>
       <div className="grid grid-cols-12 divide-x">
+      <div className="col-span-12">
+        <OnboardingContainer user={user} />
+      </div>
+
         <div className="col-span-12 md:col-span-8 px-5">
           <h2 className="text-lg font-bold mb-4">Resumen</h2>
           <div className="grid grid-cols-12 gap-4">
@@ -33,6 +44,7 @@ const DashboardPage = () => {
           </div>
         </div>
       </div>
+    </OnboardingProvider>
   );
 }
 

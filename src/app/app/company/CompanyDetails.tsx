@@ -50,7 +50,7 @@ const CompanyDetails = () => {
           title="Agrega tu empresa"
           description="Para comenzar a vender, agrega tu empresa"
           actionButton={
-            <Button href="/company/new" variant="primary" className="w-fit mx-auto">
+            <Button href="/app/company/new" variant="primary" className="w-fit mx-auto">
               Agregar empresa
             </Button>
           }
