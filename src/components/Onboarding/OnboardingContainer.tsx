@@ -4,14 +4,10 @@ import OnboardingStep from './OnboardingStep';
 import { useRouter } from 'next/navigation';
 import { Step } from '@/app/app/_shared/@types/onboarding';
 import Button from '../Button/Button';
+import { User } from '@/app/app/_shared/@types/user';
 
 interface OnboardingContainerProps {
-  user: {
-    id: string;
-    name: string;
-    email: string;
-    isFirstLogin: boolean;
-  };
+  user: User;
 }
 
 const OnboardingContainer = ({ user }: OnboardingContainerProps) => {

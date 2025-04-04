@@ -17,7 +17,7 @@ const ContactsList = ({ contacts }: Contacts) => {
               <p className='text-neutral-500'>{contact.email}</p>
             </div>
             <div className='flex gap-2 items-center'>
-              <Link href={`/contacts/${contact.id}`} className='hover:bg-neutral-100 dark:hover:bg-neutral-800 p-5 rounded-full'>
+              <Link href={`/app/contacts/${contact.id}`} className='hover:bg-neutral-100 dark:hover:bg-neutral-800 p-5 rounded-full'>
                 <EyeIcon className='size-5 text-neutral-500'/>
               </Link>
             </div>

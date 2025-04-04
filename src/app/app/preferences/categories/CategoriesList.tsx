@@ -49,7 +49,7 @@ const CategoriesList = () => {
   return isLoading ? <div>Cargando...</div> : (
     <>
       {
-        message && <Toast type={message.type}>{message.message}</Toast>
+        message && <Toast type={message.type} message={message.message}></Toast>
       }
       <div className='mt-5'>
         <ul className='border dark:border-neutral-700 overflow-hidden rounded-lg divide-y divide-neutral-200 dark:divide-neutral-700'>

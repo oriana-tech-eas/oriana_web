@@ -42,9 +42,7 @@ const CategoriesModal = () => {
   return (
     <Modal title="Nueva categoria">
       {message && (
-        <Toast type="success">
-          {message}
-        </Toast>
+        <Toast type="success" message={message} />
       )}
       <form onSubmit={handleSubmit}>
         <div className="mb-2 flex flex-col">

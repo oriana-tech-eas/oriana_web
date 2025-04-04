@@ -1,6 +1,6 @@
 import Button from "@/components/Button/Button";
 
-export default function SubscriptionInfo({ plan }: { plan: { name: string; expiresAt?: string } }) {
+export default function SubscriptionInfo({ plan }: { plan?: { name: string; expiresAt?: string } }) {
 	return (
 		<div className='bg-white dark:bg-neutral-900 rounded-lg bordered-component p-6 mb-6'>
 			<h2 className='text-xl font-semibold mb-4'>Suscripción</h2>

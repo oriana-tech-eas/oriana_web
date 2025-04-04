@@ -139,7 +139,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } : UseAuthParams 
     }, [user, error, logout, middleware, redirectIfAuthenticated, router])
 
     return {
-        user: user as User | undefined,
+        user: user as User,
         register,
         login,
         forgotPassword,
