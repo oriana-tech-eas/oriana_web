@@ -1,17 +1,27 @@
-import { Metadata } from "next";
-import Image from "next/image";
+import { Metadata } from 'next';
+import Products from './components/Products';
+import AuthLogo from './components/AuthLogo';
 
 export const metadata: Metadata = {
-  title: "Printit: Ingresa a tu cuenta",
+	title: 'Iniciar sesión - Oriana Tech',
+	description:
+		'Inicia sesión en tu cuenta de Oriana Tech para acceder a todas nuestras herramientas y servicios.',
 };
 
-export default function AuthLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <main className="h-dvh w-full flex items-center justify-center bg-gradient-to-tl from-neutral-100 dark:from-neutral-800 to-neutral-50 dark:to-neutral-950">
-      <a href="/">
-        <Image src="/brand/oriana-tech.svg" alt="Printit" className="absolute top-5 left-5 object-contain" width={120} height={36} />
-      </a>
-      {children}
-    </main>
-  );
+export default function AuthLayout({
+	children,
+}: {
+	children: React.ReactNode;
+}) {
+	return (
+		<section className='min-h-screen flex flex-col justify-center items-center bg-neutral-50 px-4'>
+			<div className='w-full max-w-md'>
+				<AuthLogo />
+
+				{children}
+
+				<Products />
+			</div>
+		</section>
+	);
 }

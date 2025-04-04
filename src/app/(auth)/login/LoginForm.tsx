@@ -48,6 +48,7 @@ const LoginForm = () => {
         <InputLabel>Contraseña</InputLabel>
         <Input type='password' value={password} onChange={e => setPassword(e.target.value)} required/>
         <InputError messages={errors.password} className='mt-2'/>
+        <Link href='/forgot-password' className='text-rose-500 mt-1 w-full block text-sm'>¿Olvidaste tu contraseña?</Link>
       </div>
       <div className='flex flex-col'>
         <InputLabel>
@@ -58,7 +59,6 @@ const LoginForm = () => {
       <Button variant='primary' className='w-full' disabled={status === 'loading'}>
         {status === 'loading' ? <ArrowPathIcon className='size-4 animate-spin' /> : 'Iniciar sesión'}
       </Button>
-      <Link href='/forgot-password' className='text-rose-500 text-center mt-3 w-full block'>¿Olvidaste tu contraseña?</Link>
     </form>
   )
 }
