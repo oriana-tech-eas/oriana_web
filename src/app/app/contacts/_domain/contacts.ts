@@ -4,7 +4,7 @@ import useSWR from 'swr'
 import { fetcher } from '../../_infraestructure/fetcher'
 import axios from '@/configs/axios'
 import { useRouter } from 'next/navigation'
-import { Contacts } from '../../_shared/@types/contacts'
+import { Contact } from '../../_shared/@types/contacts'
 
 interface useGetContactsProps { pageNumber: number, contactsType: 'customer' | 'supplier' | 'all', querySearch: string }
 
@@ -35,7 +35,7 @@ export const useGetContacts = ({ pageNumber, contactsType, querySearch }: useGet
 }
 
 export const useGetContact = (id: number) => {
-  const { data, error, isLoading } = useSWR<Contacts>(['/api/contacts', id], () => fetcher(`/api/contacts/${id}`), { revalidateOnFocus: false })
+  const { data, error, isLoading } = useSWR<Contact>(['/api/contacts', id], () => fetcher(`/api/contacts/${id}`), { revalidateOnFocus: false })
 
   return {
     customer: data,

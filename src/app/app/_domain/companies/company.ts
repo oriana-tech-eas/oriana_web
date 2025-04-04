@@ -33,7 +33,7 @@ export const useCreateCompany = () => {
     axios
       .post('/api/companies', props)
       .then(() => {
-        router.push('/company')
+        router.push('/app/company')
       })
       .catch(error => {
         if (error.response) {

@@ -19,7 +19,7 @@ const PageTitleLarge = ({ title, action, actionLabel, icon }: PageTitleLargeProp
         </div>
         <PageTitle>{title}</PageTitle>
       </div>
-      <Button href={action} variant='primary' className='w-fit'>
+      <Button href={action} variant='primary-market' className='w-fit'>
         {actionLabel}
       </Button>
     </div>

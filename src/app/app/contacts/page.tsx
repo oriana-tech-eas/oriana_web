@@ -16,7 +16,7 @@ const Contacts = () => {
     <Container>
       <PageTitleLarge
         title='Contactos'
-        action='/contacts/new'
+        action='/app/contacts/new'
         actionLabel='Nuevo contacto'
         icon={<UserGroupIcon className='size-8 text-neutral-500 dark:text-neutral-400'/>}
       />
