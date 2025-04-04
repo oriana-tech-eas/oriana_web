@@ -19,3 +19,7 @@
 .container {
   @apply max-w-5xl mx-auto px-4;
 }
+
+.bordered-component {
+  @apply border border-neutral-300 dark:border-neutral-700;
+}

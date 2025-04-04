@@ -17,7 +17,7 @@ export default function SharedHeroSection({
 				</div>
 			</div>
 			<div
-				className='absolute inset-x-0 bottom-0 h-16 bg-white'
+				className='absolute inset-x-0 bottom-0 h-16 bg-white -mb-[1px]'
 				style={{
 					clipPath: 'polygon(0 100%, 100% 100%, 100% 0, 0 100%)',
 				}}></div>

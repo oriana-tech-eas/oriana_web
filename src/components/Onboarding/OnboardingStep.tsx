@@ -4,18 +4,17 @@ import Button from '../Button/Button';
 
 interface OnboardingStepProps {
   step: Step;
-  number: number;
   onClick: () => void;
 }
 
-const OnboardingStep = ({ step, number, onClick }: OnboardingStepProps) => {
+const OnboardingStep = ({ step, onClick }: OnboardingStepProps) => {
   return (
     <div 
       className={`
         flex items-center p-4 rounded-lg border transition-all cursor-pointer
         ${step.completed 
-          ? 'border-green-200 bg-green-50' 
-          : 'border-gray-200 bg-white hover:bg-gray-50'}
+          ? 'border-green-300 bg-green-50' 
+          : 'border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 hover:bg-neutral-50'}
       `}
       onClick={onClick}
     >
@@ -23,20 +22,15 @@ const OnboardingStep = ({ step, number, onClick }: OnboardingStepProps) => {
         {step.completed ? (
           <CheckCircleIcon className="w-8 h-8 text-green-500" />
         ) : (
-          <div className="relative">
-            <MinusCircleIcon className="w-8 h-8 text-gray-300" />
-            <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-sm font-medium">
-              {number}
-            </span>
-          </div>
+          <MinusCircleIcon className="w-8 h-8 text-neutral-300" />
         )}
       </div>
       
       <div className="flex-grow">
-        <h3 className={`font-medium ${step.completed ? 'text-green-700' : 'text-gray-800'}`}>
+        <h3 className={`font-medium ${step.completed ? 'text-green-700 dark:text-green-500' : 'text-neutral-800 dark:text-neutral-100'}`}>
           {step.title}
         </h3>
-        <p className="text-sm text-gray-500">{step.description}</p>
+        <p className="text-sm text-neutral-500">{step.description}</p>
       </div>
       
       <div className="ml-4">

@@ -2,22 +2,19 @@
 import { createContext, useContext, useReducer, useEffect, ReactNode } from 'react';
 import { Step, OnboardingState, OnboardingAction, OnboardingContextType } from '@/app/app/_shared/@types/onboarding';
 
-// Define action types
 export const ACTIONS = {
   INITIALIZE_STEPS: 'INITIALIZE_STEPS',
   UPDATE_STEP_STATUS: 'UPDATE_STEP_STATUS',
   ADD_STEP: 'ADD_STEP',
   COMPLETE_ONBOARDING: 'COMPLETE_ONBOARDING',
-};
+} as const;
 
-// Initial state
 const initialState: OnboardingState = {
   steps: [],
   isCompleted: false,
   isLoading: true,
 };
 
-// Reducer function
 const onboardingReducer = (state: OnboardingState, action: OnboardingAction): OnboardingState => {
   switch (action.type) {
     case ACTIONS.INITIALIZE_STEPS:
@@ -50,14 +47,12 @@ const onboardingReducer = (state: OnboardingState, action: OnboardingAction): On
   }
 };
 
-// Create context
 const OnboardingContext = createContext<OnboardingContextType | undefined>(undefined);
 
 interface OnboardingProviderProps {
   children: ReactNode;
 }
 
-// Provider component
 export const OnboardingProvider = ({ children }: OnboardingProviderProps) => {
   const [state, dispatch] = useReducer(onboardingReducer, initialState);
 
@@ -152,7 +147,6 @@ export const OnboardingProvider = ({ children }: OnboardingProviderProps) => {
   );
 };
 
-// Custom hook
 export const useOnboarding = (): OnboardingContextType => {
   const context = useContext(OnboardingContext);
   if (context === undefined) {

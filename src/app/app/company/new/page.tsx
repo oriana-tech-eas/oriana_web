@@ -72,7 +72,7 @@ const NewCompany = () => {
             <InputError messages={errors?.description} className='mt-2'/>
           </div>
           <div className='mb-2'>
-            <Button variant='primary' disabled={isSubmitting} type='submit'>
+            <Button variant='primary-market' disabled={isSubmitting} type='submit'>
               Guardar
             </Button>
           </div>

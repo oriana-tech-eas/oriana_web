@@ -24,7 +24,7 @@ const CompanyDetails = () => {
         title="Error al cargar"
         description="Hubo un problema al cargar los datos. Por favor, intenta nuevamente."
         actionButton={
-          <Button onClick={() => window.location.reload()} variant="primary" className="w-fit mx-auto">
+          <Button onClick={() => window.location.reload()} variant="primary-market" className="w-fit mx-auto">
             Reintentar
           </Button>
         }
@@ -50,7 +50,7 @@ const CompanyDetails = () => {
           title="Agrega tu empresa"
           description="Para comenzar a vender, agrega tu empresa"
           actionButton={
-            <Button href="/app/company/new" variant="primary" className="w-fit mx-auto">
+            <Button href="/app/company/new" variant="primary-market" className="w-fit mx-auto">
               Agregar empresa
             </Button>
           }
