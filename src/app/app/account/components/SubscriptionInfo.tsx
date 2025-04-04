@@ -6,7 +6,7 @@ export default function SubscriptionInfo({ plan }: { plan: { name: string; expir
 			<h2 className='text-xl font-semibold mb-4'>Suscripción</h2>
 			<div className='p-4 border border-rose-200 bg-rose-50 rounded-lg mb-4'>
 				<p className='font-bold text-lg text-rose-700'>
-					{plan?.name || 'Free Plan'}
+					{plan?.name || 'Plan Profesional'}
 				</p>
 				{plan?.expiresAt && (
 					<p className='text-sm text-rose-600 mt-1'>

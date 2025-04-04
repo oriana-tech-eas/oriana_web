@@ -25,10 +25,10 @@ const PreferencesLayout = ({ children }: { children: React.ReactNode}) => {
           <PageTitle>Preferencias</PageTitle>
       </div>
       <nav className="flex gap-2 my-10">
-        <CustomLink active={pathname.includes('categories')} href="/preferences/categories">Categorias</CustomLink>
-        <CustomLink active={pathname.includes('taxes')} href="/preferences/taxes">Impuestos</CustomLink>
-        <CustomLink active={pathname.includes('documents')} href="/preferences/documents">Documentos</CustomLink>
-        <CustomLink active={pathname.includes('users')} href="/preferences/users">Usuarios</CustomLink>
+        <CustomLink active={pathname.includes('categories')} href="/app/preferences/categories">Categorias</CustomLink>
+        <CustomLink active={pathname.includes('taxes')} href="/app/preferences/taxes">Impuestos</CustomLink>
+        <CustomLink active={pathname.includes('documents')} href="/app/preferences/documents">Documentos</CustomLink>
+        <CustomLink active={pathname.includes('users')} href="/app/preferences/users">Usuarios</CustomLink>
       </nav>
       {children}
     </Container>

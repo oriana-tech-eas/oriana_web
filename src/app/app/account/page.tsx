@@ -23,7 +23,8 @@ const Account = () => {
         
         <div className="md:col-span-1">
           <SubscriptionInfo plan={user?.plan} />
-          <Connections />
+          {/* Implement connections later */}
+          {/* <Connections /> */}
         </div>
       </div>
     </Container>

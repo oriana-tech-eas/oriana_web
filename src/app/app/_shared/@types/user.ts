@@ -8,8 +8,8 @@ export interface User {
   role?: string;
   current_company_id?: string;
   email_verified_at?: string;
-  created_at: string;
-  initials?: string;
+  created_at?: string;
+  initials: string;
   plan?: {
     id: string;
     name: string;

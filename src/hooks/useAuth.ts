@@ -2,6 +2,7 @@ import useSWR from 'swr'
 import { useCallback, useLayoutEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import axios from '@/configs/axios'
+import { User } from '@/app/app/_shared/@types/user'
 
 interface UseAuthParams {
     middleware?: string,
@@ -138,7 +139,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } : UseAuthParams 
     }, [user, error, logout, middleware, redirectIfAuthenticated, router])
 
     return {
-        user,
+        user: user as User | undefined,
         register,
         login,
         forgotPassword,

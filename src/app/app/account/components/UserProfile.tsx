@@ -60,7 +60,7 @@ const UserProfile = ({ user }: UserProfileProps) => {
                       inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
                       ${getRoleBadgeColor(user.role)}
                     `}>
-                      {user.role || 'User'}
+                      {user.role || 'usuario'}
                     </span>
                   </div>
                 </div>
@@ -68,7 +68,7 @@ const UserProfile = ({ user }: UserProfileProps) => {
                 <div>
                   <p className="text-sm text-neutral-500">Plan</p>
                   <p className="font-medium">
-                    {user.plan?.name || 'Free Plan'}
+                    {user.plan?.name || 'Plan Profesional'}
                   </p>
                   {user.plan?.expiresAt && (
                     <p className="text-xs text-neutral-500 mt-1">
