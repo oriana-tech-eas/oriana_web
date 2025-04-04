@@ -1,4 +1,4 @@
-import Navigation from './components/Navigation/Navigation';
+import Navigation from '../_shared/components/Navigation/Navigation';
 
 export default function PublicLayout({
 	children,
@@ -7,7 +7,7 @@ export default function PublicLayout({
 }>) {
 	return (
 		<>
-			<Navigation />
+			<Navigation brandImage='/brand/oriana-market.svg' />
 			{children}
 		</>
 	);

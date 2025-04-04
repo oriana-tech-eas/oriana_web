@@ -63,7 +63,7 @@ const PricingSection = () => {
 						'Soporte prioritario',
 					]}
 					buttonText='Prueba gratuita de 30 días'
-					buttonVariant='primary'
+					buttonVariant='primary-market'
 				/>
 				<PricingCard
 					title='Empresarial'

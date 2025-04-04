@@ -11,7 +11,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button = ({ children, variant, disabled, href, target, size, ...props }: ButtonProps) => {
-  const classes = `rounded-lg ${buttonSizes[size || 'md']} flex items-center justify-center duration-200 ease-in-out active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none ${buttonVariants[variant]} ${props.className}`
+  const classes = `rounded-lg font-medium ${buttonSizes[size || 'md']} flex items-center justify-center duration-200 ease-in-out active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none ${buttonVariants[variant]} ${props.className}`
 
   if (href) {
     return (

@@ -14,6 +14,7 @@ export type ButtonVariant =
   | 'ghost-link-market'
   | 'neutral-market'
   | 'neutral-outline-market'
+  | 'white-market'
   // Connect variants
   | 'primary-connect'
   | 'secondary-connect'
@@ -21,6 +22,7 @@ export type ButtonVariant =
   | 'ghost-link-connect'
   | 'neutral-connect'
   | 'neutral-outline-connect'
+  | 'white-connect'
   // Booking variants
   | 'primary-booking'
   | 'secondary-booking'
@@ -56,6 +58,7 @@ export const buttonVariants: Record<ButtonVariant, string> = {
   'secondary-market': 'bg-transparent disabled:hover:bg-transparent hover:bg-neutral-50 hover:active:bg-neutral-100 text-neutral-800 border rounded-lg p-2 flex dark:border-neutral-600 dark:text-neutral-50 dark:hover:bg-neutral-800 dark:hover:active:bg-neutral-900',
   'neutral-market': 'bg-neutral-100 disabled:hover:bg-neutral-400 hover:bg-neutral-200 hover:active:bg-neutral-300 text-neutral-950 rounded-lg p-2 flex',
   'neutral-outline-market': 'bg-transparent disabled:hover:bg-transparent hover:bg-neutral-50 hover:active:bg-neutral-100 text-neutral-800 border border-neutral-400 rounded-lg p-2 flex dark:border-neutral-300 dark:text-neutral-50 dark:hover:bg-neutral-800 dark:hover:active:bg-neutral-900',
+  'white-market': 'bg-white disabled:hover:bg-neutral-100 hover:bg-neutral-50 hover:active:bg-neutral-100 text-rose-600 border border-white rounded-lg p-2 flex dark:border-neutral-50 dark:text-neutral-50 dark:hover:bg-neutral-800 dark:hover:active:bg-neutral-900',
   
   // Connect variants (green theme)
   'primary-connect': 'bg-teal-500 disabled:hover:bg-teal-500 hover:bg-teal-600 hover:active:bg-teal-700 text-white dark:bg-teal-700 dark:hover:bg-teal-800 dark:hover:active:bg-teal-900 dark:text-neutral-50',
@@ -64,6 +67,7 @@ export const buttonVariants: Record<ButtonVariant, string> = {
   'ghost-link-connect': 'bg-transparent disabled:hover:text-transparent hover:text-teal-900 hover:active:text-teal-900 dark:text-neutral-50 dark:hover:text-teal-200',
   'neutral-connect': 'bg-neutral-100 disabled:hover:bg-neutral-400 hover:bg-teal-50 hover:active:bg-teal-100 text-teal-950 rounded-lg p-2 flex',
   'neutral-outline-connect': 'bg-transparent disabled:hover:bg-transparent hover:bg-teal-50 hover:active:bg-teal-100 text-teal-800 border border-teal-400 rounded-lg p-2 flex dark:border-teal-300 dark:text-neutral-50 dark:hover:bg-neutral-800 dark:hover:active:bg-neutral-900',
+  'white-connect': 'bg-white disabled:hover:bg-white hover:bg-neutral-50 hover:active:bg-neutral-100 text-teal-700 hover:text-teal-800 border border-white rounded-lg p-2 flex dark:border-neutral-600 dark:text-neutral-50 dark:hover:bg-neutral-800 dark:hover:active:bg-neutral-900',
   
   // Booking variants (amber/orange theme)
   'primary-booking': 'bg-amber-500 disabled:hover:bg-amber-500 hover:bg-amber-600 hover:active:bg-amber-700 text-white dark:bg-amber-700 dark:hover:bg-amber-800 dark:hover:active:bg-amber-900 dark:text-neutral-50',

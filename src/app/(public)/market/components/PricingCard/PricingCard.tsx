@@ -8,7 +8,7 @@ interface PricingCardProps {
   recommended: boolean
   features: string[]
   buttonText: string
-  buttonVariant: 'primary' | 'secondary' | 'danger' | 'link' | 'ghost-link' | 'neutral' | 'neutral-outline' | 'white-outline'
+  buttonVariant: 'primary' | 'secondary' | 'danger' | 'link' | 'ghost-link' | 'neutral' | 'neutral-outline' | 'white-outline' | 'white-market' | 'primary-market' | 'secondary-market'
 }
 
 const PricingCard = ({
