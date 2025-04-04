@@ -4,13 +4,12 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 
 interface ToastProps {
-  children: React.ReactNode;
+  message: string;
   type: 'success' | 'error' | 'warning' | 'info';
-  show: boolean;
 }
 
-const Toast = ({ children, type, show }: ToastProps) => {
-  const [display, setDisplay] = useState(show)
+const Toast = ({ message, type }: ToastProps) => {
+  const [display, setDisplay] = useState(true)
 
   const ToastVariants = {
     success: 'bg-green-100 text-green-500 dark:bg-green-500 dark:text-white',
@@ -31,7 +30,7 @@ const Toast = ({ children, type, show }: ToastProps) => {
       <div className="flex items-center justify-between">
         <div className="flex items-center">
           <div className="mx-2">
-            {children}
+            {message}
           </div>
         </div>
         <button onClick={() => setDisplay(false)} className="p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">

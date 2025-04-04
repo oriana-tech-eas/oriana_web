@@ -1,5 +1,5 @@
 {
-  "name": "printit_fe",
+  "name": "oriana_frontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -15,11 +15,12 @@
     "@heroicons/react": "^2.1.4",
     "@tailwindcss/forms": "^0.5.7",
     "axios": "^1.7.2",
-    "next": "14.2.4",
+    "next": "^14.2.12",
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
     "react-select": "^5.8.0",
+    "recharts": "^2.12.7",
     "swr": "^2.2.5",
     "tailwind-datepicker-react": "^1.4.3"
   },

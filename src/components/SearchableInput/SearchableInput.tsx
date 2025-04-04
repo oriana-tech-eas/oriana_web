@@ -4,13 +4,14 @@ import Button from "../Button/Button";
 import Input from "../Input/Input"
 import InputLabel from "../InputLabel/InputLabel"
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
-import {useFloating, useFocus, useInteractions, offset} from '@floating-ui/react';
+import {useFloating, useFocus, useInteractions, offset, useDismiss} from '@floating-ui/react';
 
 interface SearchableInputProps {
   label: string;
   value?: string;
   handler?: (e: any) => void;
   data?: React.ReactNode;
+  className?: string;
   selectedItem: any;
   emptyAction?: {
     href: string;
@@ -19,7 +20,7 @@ interface SearchableInputProps {
   };
 }
 
-const SearchableInput = ({ label, value, handler, data, emptyAction, selectedItem }: SearchableInputProps) => {
+const SearchableInput = ({ label, value, handler, data, emptyAction, selectedItem, className }: SearchableInputProps) => {
   const [open, setOpen] = useState(false);
 
   const {refs, floatingStyles, context} = useFloating({
@@ -30,13 +31,15 @@ const SearchableInput = ({ label, value, handler, data, emptyAction, selectedIte
   });
 
   const focus = useFocus(context);
-
+  const dismiss = useDismiss(context);
+  
   const {getReferenceProps, getFloatingProps} = useInteractions([
     focus,
+    dismiss
   ]);
 
   return (
-    <div className='flex flex-col gap-2 relative' ref={refs.setReference} {...getReferenceProps()}>
+    <div className={`${className} flex flex-col gap-2 relative`} ref={refs.setReference} {...getReferenceProps()}>
       <InputLabel>{label}</InputLabel>
       {
         selectedItem ? selectedItem

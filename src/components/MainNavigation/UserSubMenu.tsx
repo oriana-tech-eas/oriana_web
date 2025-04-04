@@ -44,11 +44,11 @@ const UserSubMenu = () => {
         >
           <ul>
             <li>
-              <Link href="/account" className="px-4 py-2 flex w-full items-center border-b hover:bg-neutral-50 dark:hover:bg-neutral-700 dark:border-neutral-700">
+              <Link href="/app/account" className="px-4 py-2 flex w-full items-center border-b hover:bg-neutral-50 dark:hover:bg-neutral-700 dark:border-neutral-700">
                 <UserCircleIcon className="size-5 me-2"/>
                 Mi cuenta
               </Link>
-              <Link href="/company" className="px-4 py-2 flex w-full items-center border-b hover:bg-neutral-50 dark:hover:bg-neutral-700 dark:border-neutral-700">
+              <Link href="/app/company" className="px-4 py-2 flex w-full items-center border-b hover:bg-neutral-50 dark:hover:bg-neutral-700 dark:border-neutral-700">
                 <BuildingOffice2Icon className="size-5 me-2"/>
                 Empresa
               </Link>

@@ -11,3 +11,13 @@ export const formatCurrency = ({ amount, currency }: {amount: number, currency: 
 
   return formattedCurrency;
 }
+
+export const formatDate = (date: string) => {
+  const formattedDate = new Date(date).toLocaleDateString('es-PY', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  })
+
+  return formattedDate;
+}
