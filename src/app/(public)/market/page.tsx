@@ -6,7 +6,7 @@ import SharedHeroSection from "../_shared/components/SharedHeroSection";
 
 export default function Home() {
   return (
-    <main>
+    <div className="-mt-14">
       <SharedHeroSection colors={["from-rose-50", "to-rose-100"]}>
         <div>
           <h1 className='text-4xl font-bold tracking-tight sm:text-5xl'>
@@ -34,6 +34,6 @@ export default function Home() {
       <WhyPrintitSection />
       <PricingSection />
       <RegisterBanner />
-    </main>
+    </div>
   );
 }

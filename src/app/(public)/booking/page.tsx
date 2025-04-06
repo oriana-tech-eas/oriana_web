@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import SharedHeroSection from '../_shared/components/SharedHeroSection';
-import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
+import HeroCalendar from './HeroCalendar';
+import FeaturesSection from './FeatureSection';
+import BookingFlowSection from './BookingFlowSection';
 
 export default function Home() {
 	return (
@@ -27,232 +30,13 @@ export default function Home() {
 						</Link>
 					</div>
 				</div>
-				<div className='hidden lg:block'>
-					<div className='bg-white/10 backdrop-blur-sm rounded-lg p-6 shadow-xl'>
-						<div className='grid grid-cols-7 gap-2'>
-							{['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(
-								(day, idx) => (
-									<div
-										key={idx}
-										className='text-center text-white font-medium py-2'>
-										{day}
-									</div>
-								)
-							)}
-
-							{Array.from({ length: 35 }).map((_, idx) => {
-								// Randomly generate some appointments for visual effect
-								const hasAppointment = idx % 7 !== 0 && idx % 5 === 0;
-								const isToday = idx === 15;
-
-								return (
-									<div
-										key={idx}
-										className={`rounded-md p-2 text-center ${
-											isToday
-												? 'bg-white text-amber-800 font-bold'
-												: hasAppointment
-												? 'bg-amber-500/50'
-												: 'bg-white/5'
-										}`}>
-										{idx + 1}
-										{hasAppointment && (
-											<div className='mt-1 h-1.5 w-full bg-white/50 rounded-full'></div>
-										)}
-									</div>
-								);
-							})}
-						</div>
-					</div>
-				</div>
+				<HeroCalendar />
 			</SharedHeroSection>
 
-			{/* Features Section */}
-			<div id='features' className='py-24 bg-white'>
-				<div className='container mx-auto px-6 lg:px-8'>
-					<div className='mx-auto max-w-2xl lg:text-center'>
-						<h2 className='text-base font-semibold leading-7 text-amber-600'>
-							Powerful Scheduling
-						</h2>
-						<p className='mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
-							Streamline your appointment management
-						</p>
-						<p className='mt-6 text-lg leading-8 text-gray-600'>
-							Oriana Booking makes it easy to manage appointments for any type
-							of service or individual. Perfect for salons, clinics,
-							freelancers, and more.
-						</p>
-					</div>
-					<div className='mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl'>
-						<div className='grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16'>
-							{[
-								{
-									title: 'Online Booking',
-									description:
-										'Allow clients to book appointments online 24/7, reducing phone calls and administrative work.',
-									icon: '🌐',
-								},
-								{
-									title: 'Automated Reminders',
-									description:
-										'Reduce no-shows with automated email and SMS reminders to clients before appointments.',
-									icon: '🔔',
-								},
-								{
-									title: 'Resource Management',
-									description:
-										'Manage staff schedules, room availability, and equipment allocation efficiently.',
-									icon: '📋',
-								},
-								{
-									title: 'Calendar Integration',
-									description:
-										'Sync with Google Calendar, Outlook, and other popular calendar applications.',
-									icon: '📅',
-								},
-							].map((feature, idx) => (
-								<div key={idx} className='relative pl-16'>
-									<div className='absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-lg bg-amber-600'>
-										<span className='text-xl text-white'>{feature.icon}</span>
-									</div>
-									<h3 className='text-lg font-semibold leading-8 text-gray-900'>
-										{feature.title}
-									</h3>
-									<p className='mt-2 text-base leading-7 text-gray-600'>
-										{feature.description}
-									</p>
-								</div>
-							))}
-						</div>
-					</div>
-				</div>
-			</div>
+			<FeaturesSection />
 
 			{/* Booking Flow */}
-			<div className='bg-amber-50 py-24'>
-				<div className='container mx-auto px-6 lg:px-8'>
-					<div className='mx-auto max-w-2xl lg:text-center mb-16'>
-						<h2 className='text-base font-semibold leading-7 text-amber-600'>
-							Simple Booking Flow
-						</h2>
-						<p className='mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
-							How it works
-						</p>
-						<p className='mt-6 text-lg leading-8 text-gray-600'>
-							A seamless experience for both you and your clients.
-						</p>
-					</div>
-
-					<div className='grid grid-cols-1 md:grid-cols-4 gap-8'>
-						{[
-							{
-								step: '1',
-								title: 'Choose Service',
-								description:
-									'Clients select the service they need from your customizable catalog.',
-								icon: (
-									<svg
-										xmlns='http://www.w3.org/2000/svg'
-										fill='none'
-										viewBox='0 0 24 24'
-										strokeWidth={1.5}
-										stroke='currentColor'
-										className='w-8 h-8'>
-										<path
-											strokeLinecap='round'
-											strokeLinejoin='round'
-											d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12'
-										/>
-									</svg>
-								),
-							},
-							{
-								step: '2',
-								title: 'Select Time',
-								description:
-									'Available time slots are displayed based on your schedule and preferences.',
-								icon: (
-									<svg
-										xmlns='http://www.w3.org/2000/svg'
-										fill='none'
-										viewBox='0 0 24 24'
-										strokeWidth={1.5}
-										stroke='currentColor'
-										className='w-8 h-8'>
-										<path
-											strokeLinecap='round'
-											strokeLinejoin='round'
-											d='M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z'
-										/>
-									</svg>
-								),
-							},
-							{
-								step: '3',
-								title: 'Client Details',
-								description:
-									'Client provides their information or logs in to their existing account.',
-								icon: (
-									<svg
-										xmlns='http://www.w3.org/2000/svg'
-										fill='none'
-										viewBox='0 0 24 24'
-										strokeWidth={1.5}
-										stroke='currentColor'
-										className='w-8 h-8'>
-										<path
-											strokeLinecap='round'
-											strokeLinejoin='round'
-											d='M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z'
-										/>
-									</svg>
-								),
-							},
-							{
-								step: '4',
-								title: 'Confirmation',
-								description:
-									'Booking is confirmed with automatic notifications to both parties.',
-								icon: (
-									<svg
-										xmlns='http://www.w3.org/2000/svg'
-										fill='none'
-										viewBox='0 0 24 24'
-										strokeWidth={1.5}
-										stroke='currentColor'
-										className='w-8 h-8'>
-										<path
-											strokeLinecap='round'
-											strokeLinejoin='round'
-											d='M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
-										/>
-									</svg>
-								),
-							},
-						].map((step, idx) => (
-							<div key={idx} className='relative'>
-								{idx < 3 && (
-									<div className='hidden md:block absolute top-20 left-full w-full h-0.5 bg-amber-200 z-0 -translate-y-1/2'>
-										<div className='absolute top-0 right-0 h-3 w-3 -mt-1 mr-1 bg-amber-400 transform rotate-45'></div>
-									</div>
-								)}
-								<div className='bg-white rounded-lg p-6 shadow-md relative z-10'>
-									<div className='h-16 w-16 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 mb-4'>
-										{step.icon}
-									</div>
-									<div className='absolute top-0 right-0 -mt-3 -mr-3 bg-amber-600 text-white h-8 w-8 rounded-full flex items-center justify-center font-bold'>
-										{step.step}
-									</div>
-									<h3 className='text-lg font-semibold text-gray-900'>
-										{step.title}
-									</h3>
-									<p className='mt-2 text-gray-600'>{step.description}</p>
-								</div>
-							</div>
-						))}
-					</div>
-				</div>
-			</div>
+			<BookingFlowSection />
 
 			{/* Integration with Market */}
 			<div className='bg-white py-24'>
@@ -274,7 +58,7 @@ export default function Home() {
 								</div>
 
 								<svg
-									className='absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 text-amber-400'
+									className='absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 text-amber-950'
 									xmlns='http://www.w3.org/2000/svg'
 									width='48'
 									height='48'
@@ -288,8 +72,8 @@ export default function Home() {
 									<path d='M12 5l7 7-7 7'></path>
 								</svg>
 
-								<div className='bg-blue-100 rounded-lg p-4 mt-12'>
-									<div className='text-sm font-medium text-blue-800 mb-2'>
+								<div className='bg-rose-100 rounded-lg p-4 mt-12'>
+									<div className='text-sm font-medium text-rose-900 mb-2'>
 										Oriana Market
 									</div>
 									<div className='space-y-2'>
@@ -303,72 +87,34 @@ export default function Home() {
 
 						<div className='order-1 lg:order-2'>
 							<h2 className='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
-								Seamless integration with Oriana Market
+								Integración perfecta con Oriana Market
 							</h2>
 							<p className='mt-6 text-lg leading-8 text-gray-600'>
-								Automatically generate invoices from appointments and manage
-								your finances in one place.
+								Genere automáticamente facturas a partir de citas y gestione sus finanzas en un solo lugar.
 							</p>
 							<ul className='mt-8 space-y-4'>
 								<li className='flex items-start'>
 									<div className='flex-shrink-0'>
-										<svg
-											className='h-6 w-6 text-amber-500'
-											fill='none'
-											viewBox='0 0 24 24'
-											strokeWidth='1.5'
-											stroke='currentColor'
-											aria-hidden='true'>
-											<path
-												strokeLinecap='round'
-												strokeLinejoin='round'
-												d='M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
-											/>
-										</svg>
+										<CheckCircleIcon className='h-6 w-6 text-amber-500' />
 									</div>
 									<p className='ml-3 text-base text-gray-600'>
-										Convert completed appointments to invoices with a single
-										click
+										Convierta citas completadas en facturas con un solo clic
 									</p>
 								</li>
 								<li className='flex items-start'>
 									<div className='flex-shrink-0'>
-										<svg
-											className='h-6 w-6 text-amber-500'
-											fill='none'
-											viewBox='0 0 24 24'
-											strokeWidth='1.5'
-											stroke='currentColor'
-											aria-hidden='true'>
-											<path
-												strokeLinecap='round'
-												strokeLinejoin='round'
-												d='M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
-											/>
-										</svg>
+										<CheckCircleIcon className='h-6 w-6 text-amber-500' />
 									</div>
 									<p className='ml-3 text-base text-gray-600'>
-										Track appointment revenue and analyze business performance
+										Realice seguimiento de ingresos por citas y analice el rendimiento del negocio
 									</p>
 								</li>
 								<li className='flex items-start'>
 									<div className='flex-shrink-0'>
-										<svg
-											className='h-6 w-6 text-amber-500'
-											fill='none'
-											viewBox='0 0 24 24'
-											strokeWidth='1.5'
-											stroke='currentColor'
-											aria-hidden='true'>
-											<path
-												strokeLinecap='round'
-												strokeLinejoin='round'
-												d='M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
-											/>
-										</svg>
+										<CheckCircleIcon className='h-6 w-6 text-amber-500' />
 									</div>
 									<p className='ml-3 text-base text-gray-600'>
-										Seamlessly manage client records across both platforms
+										Gestione sin problemas los registros de clientes en ambas plataformas
 									</p>
 								</li>
 							</ul>
