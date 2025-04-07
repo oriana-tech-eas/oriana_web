@@ -15,7 +15,7 @@ const NewCategory = () => {
           <InputLabel>Nombre</InputLabel>
           <Input type='text' placeholder='Nombre de la categoría' required />
           <InputError messages={[]} />
-          <Button type='submit' variant='primary' className='w-fit mt-5'>Guardar</Button>
+          <Button type='submit' variant='primary-market' className='w-fit mt-5'>Guardar</Button>
         </form>
       </div>
     </Container>

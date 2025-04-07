@@ -15,7 +15,7 @@ const Expenses = () => {
           </div>
           <PageTitle>Gastos</PageTitle>
         </div>
-        <Button href='/expenses/new' variant='primary' className='w-fit'>
+        <Button href='/app/expenses/new' variant='primary-market' className='w-fit'>
           Registrar gasto
         </Button>
       </div>

@@ -7,7 +7,11 @@ export default function PublicLayout({
 }>) {
 	return (
 		<>
-			<Navigation brandImage='/brand/oriana-market.svg' />
+			<Navigation brandImage='/brand/oriana-market.svg' subMenu={[
+				'Precios',
+				'Características',
+				'Integraciones',
+			]} />
 			{children}
 		</>
 	);

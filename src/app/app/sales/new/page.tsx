@@ -73,7 +73,7 @@ const NewSale = () => {
 									/>
 								))}
 								emptyAction={{
-									href: '/contacts/new',
+									href: '/app/contacts/new',
 									label: 'Nuevo cliente',
 									title: 'No se encontraron resultados',
 								}}
@@ -113,7 +113,7 @@ const NewSale = () => {
                     ))
                   }
 									emptyAction={{
-										href: '/products/new',
+										href: '/app/products/new',
 										label: 'Nuevo producto',
 										title: 'No se encontraron resultados',
 									}}
@@ -127,22 +127,22 @@ const NewSale = () => {
 										<InputLabel>Descuento</InputLabel>
 										<Input type='number' required />
 									</div>
-									<Button variant='link' size='sm' className='w-fit mt-4'>
+									<Button variant='link-market' size='sm' className='w-fit mt-4'>
 										<TrashIcon className='size-5 mt-2 text-red-500' />
 									</Button>
 								</div>
 							</div>
-							<Button variant='link' size='sm' className='w-fit mt-4'>
+							<Button variant='link-market' size='sm' className='w-fit mt-4'>
 								<PlusIcon className='size-5 mr-2' />
 								Nuevo item
 							</Button>
 						</div>
 
 						<div className='flex gap-2 border-t dark:border-neutral-700 mt-5'>
-							<Button variant='secondary' className='w-fit mt-4'>
+							<Button variant='secondary-market' className='w-fit mt-4'>
 								Guardar borrador
 							</Button>
-							<Button variant='primary' className='w-fit mt-4'>
+							<Button variant='primary-market' className='w-fit mt-4'>
 								Registrar venta
 							</Button>
 						</div>

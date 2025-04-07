@@ -46,6 +46,7 @@ const NewExpensesPage = () => {
   const options = {
     autoHide: true,
     todayBtn: true,
+    todayBtnText: "Hoy",
     clearBtn: true,
     clearBtnText: "Borrar",
     maxDate: new Date("2030-01-01"),
@@ -169,7 +170,7 @@ const NewExpensesPage = () => {
               )
             }
             emptyAction={{
-              href: '/contacts/new',
+              href: '/app/contacts/new',
               label: 'Registrar',
               title: '¿No encontras el proveedor?'
             }}
@@ -198,7 +199,7 @@ const NewExpensesPage = () => {
                 )
               }
               emptyAction={{
-                href: '/preferences/categories/new',
+                href: '/app/preferences/categories/new',
                 label: 'Registrar',
                 title: '¿No encontras la categoria?'
               }}
@@ -238,9 +239,9 @@ const NewExpensesPage = () => {
             <Input type='text' value={description} onChange={e => setDescription(e.target.value)}/>
           </div>
           <div className='flex gap-2 mt-5'>
-            <Button href='/expenses' variant='secondary' disabled={isSubmitting}>Cancelar</Button>
-            <Button variant='secondary' type='submit' onClick={e => handleCreation(e, false)} disabled={isSubmitting}>Guardar y nuevo</Button>
-            <Button variant='primary' type='submit' onClick={e => handleCreation(e, true)} disabled={isSubmitting}>Guardar y salir</Button>
+            <Button href='/app/expenses' variant='secondary-market' disabled={isSubmitting}>Cancelar</Button>
+            <Button variant='secondary-market' type='submit' onClick={e => handleCreation(e, false)} disabled={isSubmitting}>Guardar y nuevo</Button>
+            <Button variant='primary-market' type='submit' onClick={e => handleCreation(e, true)} disabled={isSubmitting}>Guardar y salir</Button>
           </div>
         </div>
       </div>

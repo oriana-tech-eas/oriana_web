@@ -18,7 +18,7 @@ const Sales = () => {
           </div>
           <PageTitle>Ventas</PageTitle>
         </div>
-        <Button href='/sales/new' variant='primary' className='w-fit'>
+        <Button href='/app/sales/new' variant='primary-market' className='w-fit'>
           Nueva venta
         </Button>
       </div>

@@ -25,7 +25,7 @@ const OnboardingContainer = ({ user }: OnboardingContainerProps) => {
       title: 'Agrega tu primer contacto',
       description: 'Registrá tu primer contacto para empezar a vender',
       completed: false,
-      action: '/app/contacts/new',
+      action: '/app/contacts',
     }
   ]);
 

@@ -156,7 +156,7 @@ const ProductForm = () => {
       </div>
 
       <div className='mt-2'>
-        <Button type='submit' variant='primary' className='w-fit'>Guardar producto</Button>
+        <Button type='submit' variant='primary-market' className='w-fit'>Guardar producto</Button>
       </div>
     </form>
   )

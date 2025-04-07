@@ -10,7 +10,7 @@ const Categories = () => {
         Aquí encontrarás categorías que pueden usarse en el registro de productos y gastos, tienes algunas predefinidas y puedes agregar más según necesites.
       </p>
       <CategoriesList />
-      <Button href='/preferences/categories/new' variant='link' className='w-fit mt-5'>
+      <Button href='/app/preferences/categories/new' variant='link-market' className='w-fit mt-5'>
         <PlusIcon className='size-5'/>
         Nueva categoría
       </Button>
