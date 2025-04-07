@@ -4,9 +4,16 @@ import RegisterBanner from "./RegisterBanner";
 import WhyPrintitSection from "./WhyPrintitSection";
 import SharedHeroSection from "../_shared/components/SharedHeroSection";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Oriana Market: Tu aliado en la gestión empresarial",
+  description: "Oriana Market es una plataforma integral para la gestión de tu negocio, que incluye facturación, ventas, stock y más. Simplifica tus procesos y optimiza tu tiempo con nuestra herramienta fácil de usar.",
+};
+
 export default function Home() {
   return (
-    <div className="-mt-14">
+    <div className="-mt-[77px]">
       <SharedHeroSection colors={["from-rose-50", "to-rose-100"]}>
         <div>
           <h1 className='text-4xl font-bold tracking-tight sm:text-5xl'>

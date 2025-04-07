@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <>
       <MegaMenu />
-      <main className="mt-14">
+      <main className="mt-[64px]">
         {children}
       </main>
       <MainFooter products={products} />

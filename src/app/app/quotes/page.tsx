@@ -28,7 +28,7 @@ const Quotes = () => {
 							<TableCell>{sale.date}</TableCell>
 							<TableCell>{sale.amount}</TableCell>
 							<TableCell>
-								<Button href='/sales/1' variant='secondary'>
+								<Button href='/app/sales/1' variant='secondary'>
 									Registrar venta
 								</Button>
 							</TableCell>

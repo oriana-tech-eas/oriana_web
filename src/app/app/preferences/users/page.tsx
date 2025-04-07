@@ -4,13 +4,18 @@ import { PlusIcon } from "@heroicons/react/24/outline";
 
 const Users = () => {
   return (
-    <div>
-      <EmptyState type="empty" title="No tienes usuarios" description="No hay usuarios registrados"/>
-      <Button href="/preferences/users/new" variant="link" className="w-fit mt-5">
-        <PlusIcon className="size-5"/>
-        Nuevo usuario
-      </Button>
-    </div>
+    <EmptyState 
+      type="empty"
+      title="No tienes usuarios"
+      description="No hay usuarios registrados"
+      actionButton={
+        <Button href="/app/preferences/users/new" variant="primary-market" className="w-fit mx-auto">
+          <PlusIcon className="size-5 mr-2"/>
+          Nuevo usuario
+        </Button>
+        
+      }
+    />
   );
 }
 

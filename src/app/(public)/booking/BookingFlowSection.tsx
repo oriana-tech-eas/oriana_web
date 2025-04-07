@@ -49,13 +49,13 @@ export default function BookingFlowSection() {
 
 				<div className='grid grid-cols-1 md:grid-cols-4 gap-8'>
 					{bookingSteps.map((step, idx) => (
-						<div key={idx} className='relative'>
+						<div key={idx} className='relative flex'>
 							{idx < 3 && (
 								<div className='hidden md:block absolute top-20 left-full w-full h-0.5 bg-amber-200 z-0 -translate-y-1/2'>
 									<div className='absolute top-0 right-0 h-3 w-3 -mt-1 mr-1 bg-amber-400 transform rotate-45'></div>
 								</div>
 							)}
-							<div className='bg-white rounded-lg p-6 shadow-md relative z-10'>
+							<div className='bg-white rounded-lg p-6 shadow-md relative z-10 flex-1'>
 								<div className='h-16 w-16 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 mb-4'>
 									{step.icon}
 								</div>
