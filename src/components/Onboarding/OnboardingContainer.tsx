@@ -31,24 +31,24 @@ const OnboardingContainer = ({ user }: OnboardingContainerProps) => {
 
   // This useEffect would check the completion status of steps from the API
   useEffect(() => {
-    const checkStepsStatus = async () => {
-      try {
-        const response = await fetch('/api/onboarding/status');
-        const data = await response.json();
+    // const checkStepsStatus = async () => {
+    //   try {
+    //     const response = await fetch('/api/onboarding/status');
+    //     const data = await response.json();
         
-        // Update steps with completion status from backend
-        setSteps(currentSteps => 
-          currentSteps.map(step => ({
-            ...step,
-            completed: data.completedSteps.includes(step.id)
-          }))
-        );
-      } catch (error) {
-        console.error('Failed to fetch onboarding status:', error);
-      }
-    };
+    //     // Update steps with completion status from backend
+    //     setSteps(currentSteps => 
+    //       currentSteps.map(step => ({
+    //         ...step,
+    //         completed: data.completedSteps.includes(step.id)
+    //       }))
+    //     );
+    //   } catch (error) {
+    //     console.error('Failed to fetch onboarding status:', error);
+    //   }
+    // };
 
-    checkStepsStatus();
+    // checkStepsStatus();
   }, []);
 
   const handleStepAction = (stepId: string) => {

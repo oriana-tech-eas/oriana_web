@@ -33,7 +33,7 @@ const LoginForm = () => {
       password,
       remember: shouldRemember,
       setErrors,
-      setStatus,
+      setStatus: (status: string | null) => setStatus(status || ''),
     })
   }
 
@@ -48,11 +48,11 @@ const LoginForm = () => {
         <InputLabel>Contraseña</InputLabel>
         <Input type='password' value={password} onChange={e => setPassword(e.target.value)} required/>
         <InputError messages={errors.password} className='mt-2'/>
-        <Link href='/forgot-password' className='text-rose-500 mt-1 w-full block text-sm'>¿Olvidaste tu contraseña?</Link>
+        <Link href='/forgot-password' className='text-orange-600 mt-1 w-full block text-sm'>¿Olvidaste tu contraseña?</Link>
       </div>
       <div className='flex flex-col'>
         <InputLabel>
-          <input type='checkbox' className='rounded bg-neutral-50 active:bg-rose-500 checked:bg-rose-500 hover:checked:bg-rose-600 hover:checked:focus:bg-rose-500 hover:bg-neutral-200 hover:focus:bg-rose-500 focus:checked:bg-rose-500 outline-none focus:ring-2 focus:ring-rose-500/35 focus:ring-offset-1 duration-200' defaultChecked={shouldRemember} onChange={e => setShouldRemember(!shouldRemember)}/>
+          <input type='checkbox' className='rounded bg-neutral-50 active:bg-orange-500 checked:bg-orange-500 hover:checked:bg-orange-600 hover:checked:focus:bg-orange-500 hover:bg-neutral-200 hover:focus:bg-orange-500 focus:checked:bg-orange-500 outline-none focus:ring-2 focus:ring-orange-500/35 focus:ring-offset-1 duration-200' defaultChecked={shouldRemember} onChange={e => setShouldRemember(!shouldRemember)}/>
           <span className='ms-1'>Recordarme</span>
         </InputLabel>
       </div>

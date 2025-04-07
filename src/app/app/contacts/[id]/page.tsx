@@ -5,17 +5,20 @@ import React from 'react'
 import { useDeleteContact, useGetContact } from '../_domain/contacts'
 import Button from '@/components/Button/Button'
 import Avatar from '@/components/Avatar/Avatar'
+import Link from 'next/link'
 
-const CustomerDetail = ({ params }: { params: { id: number} }) => {
+const ContactDetail = ({ params }: { params: { id: number} }) => {
   const { id } = params
-  const { customer, error, isLoading } = useGetContact(id)
+  const { contact, error, isLoading } = useGetContact(id)
   const { deleteContact } = useDeleteContact()
 
   const handleDelete = () => {
-    try {
-      deleteContact(id)
-    } catch (error) {
-      console.error(error)
+    if (confirm('¿Estás seguro de que deseas eliminar este contacto?')) {
+      try {
+        deleteContact(id)
+      } catch (error) {
+        console.error(error)
+      }
     }
   }
 
@@ -24,17 +27,21 @@ const CustomerDetail = ({ params }: { params: { id: number} }) => {
       <div className='w-full md:max-w-3xl mx-auto'>
         {isLoading && <p className='text-lg text-center text-neutral-400 animate-pulse'>Cargando...</p>}
         {
-          !isLoading && customer && (
+          !isLoading && contact && (
             <div className='border dark:text-neutral-50 dark:border-neutral-700 rounded-2xl max-w-xl mx-auto'>
-              <Avatar initials={customer?.initials} name={customer?.name} size='xl' className='mx-5 my-5'/>
+              <Avatar initials={contact?.initials} name={contact?.name} size='xl' className='mx-5 my-5'/>
               <div className='p-5'>
-                <h2 className='text-2xl font-bold'>{customer?.name}</h2>
-                <p>{ customer.address }</p>
-                <p>{ customer.email }</p>
-                <p>{ customer.phone }</p>
+                <h2 className='text-2xl font-bold'>{contact?.name}</h2>
+                <p className='mt-2'><span className='font-semibold'>Dirección:</span> {contact.address}</p>
+                <p className='mt-1'><span className='font-semibold'>Email:</span> {contact.email}</p>
+                <p className='mt-1'><span className='font-semibold'>Teléfono:</span> {contact.phone}</p>
+                <p className='mt-1'><span className='font-semibold'>Documento:</span> {contact.document}</p>
+                <p className='mt-1'><span className='font-semibold'>Tipo:</span> {contact.contacts_type === 'customer' ? 'Cliente' : 'Proveedor'}</p>
               </div>
               <div className='border-t dark:border-neutral-700 p-5 flex gap-2'>
-                <Button variant='secondary'>Editar</Button>
+                <Link href={`/app/contacts/${id}/edit`} passHref>
+                  <Button variant='secondary'>Editar</Button>
+                </Link>
                 <Button variant='danger' onClick={handleDelete}>Eliminar</Button>
               </div>
             </div>
@@ -42,7 +49,7 @@ const CustomerDetail = ({ params }: { params: { id: number} }) => {
         }
         {
           !isLoading && error && (
-            <p>Ocurrió un error al cargar el cliente</p>
+            <p>Ocurrió un error al cargar el contacto</p>
           )
         }
       </div>
@@ -50,4 +57,4 @@ const CustomerDetail = ({ params }: { params: { id: number} }) => {
   )
 }
 
-export default CustomerDetail
+export default ContactDetail

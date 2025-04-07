@@ -8,7 +8,7 @@ import { useDeleteContact, useGetContact } from '@/app/app/contacts/_domain/cont
 
 const CustomerDetailModal = ({ params }: { params: { id: number} }) => {
   const { id } = params
-  const { customer, error, isLoading } = useGetContact(id)
+  const { contact, error, isLoading } = useGetContact(id)
   const { deleteContact } = useDeleteContact()
 
   const handleDelete = () => {
@@ -24,17 +24,17 @@ const CustomerDetailModal = ({ params }: { params: { id: number} }) => {
       <div className='w-full md:max-w-3xl mx-auto'>
         {isLoading && <p className='text-lg text-center text-neutral-400 animate-pulse'>Cargando...</p>}
         {
-          !isLoading && customer && (
+          !isLoading && contact && (
             <>
-              <Avatar initials={customer?.initials} name={customer?.name} size='xl' className='mx-auto my-5'/>
+              <Avatar initials={contact?.initials} name={contact?.name} size='xl' className='mx-auto my-5'/>
               <div className='p-5'>
-                <h2 className='text-2xl font-bold'>{customer?.name}</h2>
-                <p>{ customer.address }</p>
-                <p>{ customer.email }</p>
-                <p>{ customer.phone }</p>
+                <h2 className='text-2xl font-bold'>{contact?.name}</h2>
+                <p>{ contact.address }</p>
+                <p>{ contact.email }</p>
+                <p>{ contact.phone }</p>
               </div>
               <div className='p-5 flex gap-2'>
-                <Button variant='secondary'>Editar</Button>
+                <Button href={`/app/contacts/${id}/edit`} variant='secondary'>Editar</Button>
               </div>
             </>
           )
