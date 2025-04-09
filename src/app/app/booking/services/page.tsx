@@ -114,7 +114,7 @@ const ServicesPage = () => {
                 
                 <div className="flex justify-between items-center">
                   <span className="font-semibold text-amber-700 dark:text-amber-400">
-                    {formatCurrency(service.price)}
+                    {formatCurrency({ amount: service.price, currency: 'PYG' })}
                   </span>
                   <span className="text-neutral-600 dark:text-neutral-400 text-sm">
                     {formatDuration(service.duration)}
