@@ -1,19 +1,8 @@
 import React from 'react'
 import MenuItem from '../MenuItem/MenuItem'
-import { ArrowDownCircleIcon, ArrowUpCircleIcon, ChartBarIcon, CubeIcon, UserGroupIcon, Cog8ToothIcon, HomeIcon, DocumentChartBarIcon } from '@heroicons/react/24/outline'
+import { MenuItemsProps } from '@/app/app/_shared/@types/menu'
 
-const MainNavigation = () => {
-
-  const menuItems = [
-    { href: '/app/dashboard', icon: HomeIcon, text: 'Inicio' },
-    { href: '/app/sales', icon: ArrowUpCircleIcon, text: 'Ingresos' },
-    { href: '/app/expenses', icon: ArrowDownCircleIcon, text: 'Gastos' },
-    { href: '/app/quotes', icon: DocumentChartBarIcon, text: 'Cotizaciones' },
-    { href: '/app/contacts', icon: UserGroupIcon, text: 'Contactos' },
-    { href: '/app/products', icon: CubeIcon, text: 'Productos' },
-    { href: '/app/reports', icon: ChartBarIcon, text: 'Reportes' },
-    { href: '/app/preferences/categories', icon: Cog8ToothIcon, text: 'Preferencias' },
-  ]
+const MainNavigation = ({ menuItems }: { menuItems: MenuItemsProps[]}) => {
   
   return (
     <nav className="mt-2 px-3">

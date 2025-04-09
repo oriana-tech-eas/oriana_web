@@ -6,10 +6,10 @@ interface PageTitleLargeProps {
   action: string;
   actionLabel: string;
   icon: React.ReactNode;
-
+  product?: 'booking' | 'market' | 'connect' | 'people';
 }
 
-const PageTitleLarge = ({ title, action, actionLabel, icon }: PageTitleLargeProps) => {
+const PageTitleLarge = ({ title, action, actionLabel, icon, product = 'market' }: PageTitleLargeProps) => {
 
   return(
     <div className='flex justify-between items-center'>
@@ -19,7 +19,7 @@ const PageTitleLarge = ({ title, action, actionLabel, icon }: PageTitleLargeProp
         </div>
         <PageTitle>{title}</PageTitle>
       </div>
-      <Button href={action} variant='primary-market' className='w-fit'>
+      <Button href={action} variant={`primary-${product}`} className='w-fit'>
         {actionLabel}
       </Button>
     </div>
