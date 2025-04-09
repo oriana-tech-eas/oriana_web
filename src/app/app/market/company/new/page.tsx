@@ -1,12 +1,13 @@
 'use client'
 
+import { useCreateCompany } from "@/app/app/_domain/companies/company"
 import Button from "@/components/Button/Button"
 import Container from "@/components/Container/Container"
 import Input from "@/components/Input/Input"
 import InputError from "@/components/InputError/InputError"
 import InputLabel from "@/components/InputLabel/InputLabel"
 import { useState } from "react"
-import { useCreateCompany } from "../../_domain/companies/company"
+
 
 const NewCompany = () => {
   const { createCompany } = useCreateCompany()

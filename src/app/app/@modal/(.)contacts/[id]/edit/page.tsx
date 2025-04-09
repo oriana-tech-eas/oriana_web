@@ -4,8 +4,9 @@ import React from 'react'
 import { useRouter } from 'next/navigation'
 import Modal from "@/components/Modal/Modal"
 import { useContactsContext } from '@/app/app/_context/ContactsContext'
-import ContactForm from '../../../../contacts/components/ContactForm'
-import { useGetContact } from '../../../../contacts/_domain/contacts'
+import ContactForm from '@/app/app/market/contacts/components/ContactForm'
+import { useGetContact } from '@/app/app/market/contacts/_domain/contacts'
+
 
 const EditContactModal = ({ params }: { params: { id: number } }) => {
   const { id } = params

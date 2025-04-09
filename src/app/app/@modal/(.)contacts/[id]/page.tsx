@@ -4,7 +4,7 @@ import React from 'react'
 import Button from '@/components/Button/Button'
 import Avatar from '@/components/Avatar/Avatar'
 import Modal from '@/components/Modal/Modal'
-import { useDeleteContact, useGetContact } from '@/app/app/contacts/_domain/contacts'
+import { useDeleteContact, useGetContact } from '@/app/app/market/contacts/_domain/contacts'
 
 const CustomerDetailModal = ({ params }: { params: { id: number} }) => {
   const { id } = params

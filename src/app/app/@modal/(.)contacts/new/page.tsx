@@ -4,7 +4,8 @@ import { useRouter } from 'next/navigation'
 import Modal from "@/components/Modal/Modal"
 import React from "react"
 import { useContactsContext } from '@/app/app/_context/ContactsContext'
-import ContactForm from '../../../contacts/components/ContactForm'
+import ContactForm from '@/app/app/market/contacts/components/ContactForm'
+
 
 const ContactsNewPage = () => {
   const router = useRouter()
@@ -23,7 +24,7 @@ const ContactsNewPage = () => {
 
   return (
     <Modal title='Agregar nuevo contacto'>
-      <ContactForm 
+      <ContactForm
         onSuccess={handleSuccess}
         onCancel={handleCancel}
       />

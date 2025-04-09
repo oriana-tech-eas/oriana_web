@@ -11,14 +11,14 @@ import { ArrowLeftIcon, ArrowRightIcon, DocumentArrowUpIcon } from '@heroicons/r
 import DatePicker from 'tailwind-datepicker-react'
 import { useGetContacts } from '../../contacts/_domain/contacts'
 import SearchableInput from '@/components/SearchableInput/SearchableInput'
-import { useGetCategories } from '../../_domain/categories/useGetCategories'
 import SearchableInputItem from '@/components/SearchableInput/SearchableInputItem'
-import { useGetTaxes } from '../../_domain/taxes/useTaxes'
 import SearchableSelectedItem from '@/components/SearchableInput/SearchableSelectedItem'
 import { formatCurrency } from '@/utils/currencies'
 import { CategoryType, SupplierType, TaxType } from './expenses.types'
 import { useExpenses } from '../_domain/expenses'
 import { useToast } from '@/components/Toast/ToastProvider';
+import { useGetTaxes } from '@/app/app/_domain/taxes/useTaxes'
+import { useGetCategories } from '@/app/app/_domain/categories/useGetCategories'
 
 
 const NewExpensesPage = () => {

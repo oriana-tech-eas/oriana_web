@@ -2,7 +2,8 @@
 
 import Button from "@/components/Button/Button"
 import EmptyState from "@/components/EmptyState/EmptyState"
-import { useGetCompanies } from "../_domain/companies/company"
+import { useGetCompanies } from "@/app/app/_domain/companies/company"
+
 
 const CompanyDetails = () => {
   const { company, error, isLoading }: any = useGetCompanies()

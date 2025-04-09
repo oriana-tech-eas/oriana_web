@@ -1,5 +1,6 @@
 'use client'
 
+import React from "react";
 import { useAuth } from "@/hooks/useAuth";
 import Loading from "../Loading";
 import Button from "@/components/Button/Button";
@@ -9,7 +10,7 @@ import { ToastProvider } from "@/components/Toast/ToastProvider";
 import { ContactsProvider } from "../_context/ContactsContext";
 import SideNav from "@/components/Sidenav/Sidenav";
 
-export default function AppLayout({ children, modal }: { children: React.ReactNode, modal: React.ReactNode }) {
+export default function MarketLayout({ children }: { children: React.ReactNode }) {
   // const { user } = useAuth({ middleware: 'auth' });
 
   // if (!user) {
@@ -54,7 +55,6 @@ export default function AppLayout({ children, modal }: { children: React.ReactNo
               {children}
             </div>
           </section>
-          {modal}
         </main>
       </ToastProvider>
     </ContactsProvider>
