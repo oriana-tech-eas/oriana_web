@@ -1,8 +1,8 @@
 import Avatar from "@/components/Avatar/Avatar";
 import { PencilIcon } from "@heroicons/react/16/solid";
 import Image from "next/image";
-import { User } from "../../_shared/@types/user";
 import Button from "@/components/Button/Button";
+import { User } from "@/app/app/_shared/@types/user";
 
 interface ProfileImageUpdateProps {
   user: User,

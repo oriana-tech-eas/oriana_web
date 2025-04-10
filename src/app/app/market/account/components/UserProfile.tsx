@@ -1,4 +1,5 @@
-import { User } from '../../_shared/@types/user';
+
+import { User } from '@/app/app/_shared/@types/user';
 import Avatar from '@/components/Avatar/Avatar';
 import Button from '@/components/Button/Button';
 import { formatDateTime } from '@/utils';

@@ -150,11 +150,13 @@ const ProfileEditPage: NextPage = () => {
 				<form
 					onSubmit={handleSubmit}
 					className='bg-white dark:bg-neutral-900 rounded-lg bordered-component p-6'>
-					<ProfileImageUpdate
-						user={user}
-						previewUrl={previewUrl}
-						handleImageChange={handleImageChange}
-					/>
+          {user && (
+            <ProfileImageUpdate
+              user={user}
+              previewUrl={previewUrl}
+              handleImageChange={handleImageChange}
+            />
+          )}
 
 					<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
 						<PersonalInformation

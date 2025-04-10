@@ -1,5 +1,6 @@
+import { User } from '@/app/app/_shared/@types/user';
 import InputLabel from '@/components/InputLabel/InputLabel';
-import { User } from '../../_shared/@types/user';
+
 
 interface ExtraInformationProps {
 	formData: { address: string };

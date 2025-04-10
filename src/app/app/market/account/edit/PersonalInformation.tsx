@@ -1,6 +1,6 @@
 import InputLabel from "@/components/InputLabel/InputLabel";
-import { User } from "../../_shared/@types/user";
 import Input from "@/components/Input/Input";
+import { User } from "@/app/app/_shared/@types/user";
 
 interface PersonalInformationProps {
   formData: { name: string; username: string, address: string };
