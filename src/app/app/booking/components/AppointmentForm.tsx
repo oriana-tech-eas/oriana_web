@@ -10,7 +10,7 @@ import InputError from '@/components/InputError/InputError'
 import { DatePickerTheme } from '@/utils'
 import DatePicker from 'tailwind-datepicker-react'
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline'
-import { Appointment, AppointmentFormData } from '../../_shared/@types/booking'
+import { Appointment, AppointmentFormData, Service } from '../../_shared/@types/booking'
 import { useAppointmentActions } from '../../_domain/booking/useAppointments'
 import { useGetServices } from '../../_domain/booking/useServices'
 import { useGetStaff } from '../../_domain/booking/useStaff'
@@ -274,7 +274,7 @@ const AppointmentForm = ({ initialData, preselectedDate }: AppointmentFormProps)
           </div>
         </div>
 
-        <div className="mb-4">
+        {/* <div className="mb-4">
           <SearchableInput
             label="Servicio"
             value={serviceQuery}
@@ -289,7 +289,7 @@ const AppointmentForm = ({ initialData, preselectedDate }: AppointmentFormProps)
               )
             }
             data={
-              services?.map((service: any) => (
+              services?.map((service: Service) => (
                 <SearchableInputItem
                   key={service.id}
                   data={{
@@ -309,9 +309,9 @@ const AppointmentForm = ({ initialData, preselectedDate }: AppointmentFormProps)
             }}
           />
           <InputError messages={errors?.service_id || []} />
-        </div>
+        </div> */}
 
-        <div className="mb-4">
+        {/* <div className="mb-4">
           <SearchableInput
             label="Profesional (opcional)"
             value={staffQuery}
@@ -346,7 +346,7 @@ const AppointmentForm = ({ initialData, preselectedDate }: AppointmentFormProps)
             }}
           />
           <InputError messages={errors?.staff_id || []} />
-        </div>
+        </div> */}
 
         <div>
           <InputLabel>Notas (opcional)</InputLabel>

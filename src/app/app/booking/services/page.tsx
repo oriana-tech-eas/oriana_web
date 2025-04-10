@@ -59,7 +59,7 @@ const ServicesPage = () => {
           </div>
         </div>
         
-        {isLoading ? (
+        {!isLoading ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[1, 2, 3, 4, 5, 6].map((index) => (
               <div 
@@ -77,7 +77,7 @@ const ServicesPage = () => {
           </div>
         ) : services && services.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {services.map((service) => (
+            {services?.map((service) => (
               <div 
                 key={service.id} 
                 className="bg-white dark:bg-neutral-900 rounded-lg border dark:border-neutral-700 p-4 relative group"

@@ -7,7 +7,7 @@ const NewProduct = () => {
   return (
     <Container>
       <div className='mb-5'>
-        <Button href='/app/products' variant='secondary' className='w-fit mb-4'>Volver</Button>
+        <Button href='/app/market/products' variant='secondary' className='w-fit mb-4'>Volver</Button>
         <h2 className='text-2xl font-semibold dark:text-neutral-50'>Crear producto</h2>
       </div>
       <ProductForm />

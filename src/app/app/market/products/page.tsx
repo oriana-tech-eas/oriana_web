@@ -10,7 +10,7 @@ const Products = () => {
     <Container>
       <PageTitleLarge
         title='Productos'
-        action='/app/products/new'
+        action='/app/market/products/new'
         actionLabel='Agregar producto'
         icon={<CubeIcon className='size-8 text-neutral-500 dark:text-neutral-400'/>}
       />

@@ -13,18 +13,18 @@ const NewContactPage = () => {
 
   const handleSuccess = () => {
     refreshContacts()
-    router.push('/app/contacts')
+    router.push('/app/market/contacts')
   }
 
   const handleCancel = () => {
-    router.push('/app/contacts')
+    router.push('/app/market/contacts')
   }
 
   return (
     <Container>
       <div className='w-full md:max-w-lg mx-auto'>
         <div className='mb-5'>
-          <Button href='/app/contacts' variant='secondary' className='w-fit mb-5'>Volver</Button>
+          <Button href='/app/market/contacts' variant='secondary' className='w-fit mb-5'>Volver</Button>
           <h2 className='text-2xl font-semibold dark:text-neutral-50'>Registrar contacto</h2>
         </div>
         <ContactForm 
