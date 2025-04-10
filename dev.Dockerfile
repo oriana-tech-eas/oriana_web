@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:23-alpine
 
 WORKDIR /app
 
@@ -20,4 +20,4 @@ COPY tsconfig.json .
 # Note: Don't expose ports here, Compose will handle that for us
 
 # Start Next.js in development mode based on the preferred package manager
-CMD npm run dev
+CMD ["npm", "run", "dev"]
