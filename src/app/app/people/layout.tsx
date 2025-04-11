@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { 
   CalendarDaysIcon, 
   UsersIcon, 
@@ -14,13 +14,31 @@ import Button from '@/components/Button/Button'
 import ThemeSwitch from '@/components/ThemeSwitch/ThemeSwitch'
 import SideNav from '@/components/Sidenav/Sidenav'
 import { ToastProvider } from '@/components/Toast/ToastProvider'
+import { PEOPLE_BASE_URL } from '@/utils/constants'
+import { useTheme } from 'next-themes'
+import MainContentWrapper from '@/components/Layout/MainContent'
+import MainTopBar from '@/components/Layout/MainTopBar'
+import SideBarCollapseButton from '@/components/Sidenav/SideBarCollapseButton'
 
 interface LayoutProps {
   children: React.ReactNode
 }
 
 const PeopleLayout = ({ children }: LayoutProps) => {
-  const PEOPLE_BASE_URL = '/app/people'
+  const { resolvedTheme } = useTheme()
+  const isDark = resolvedTheme === 'dark'
+  const [collapsed, setCollapsed] = useState(false);
+
+  useEffect(() => {
+    const savedState = localStorage.getItem('SideNavCollapsed');
+    if (savedState) {
+      setCollapsed(savedState === 'true');
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('SideNavCollapsed', collapsed.toString());
+  }, [collapsed]);
 
   const menuItems = [
     { href: `${PEOPLE_BASE_URL}/dashboard`, icon: HomeIcon, text: 'Inicio' },
@@ -30,31 +48,40 @@ const PeopleLayout = ({ children }: LayoutProps) => {
     { href: `${PEOPLE_BASE_URL}/staff`, icon: UserGroupIcon, text: 'Anuncios' },
   ]
 
+  const logoPath = isDark 
+  ? "/brand/white/oriana-people.svg"
+  : "/brand/oriana-people.svg"
+
   return (
     <ToastProvider>
       <main className="flex flex-col md:flex-row">
         <SideNav 
+          collapsed={collapsed}
           baseUrl="/app/people/dashboard"
-          logo="/brand/oriana-people.svg"
+          logo={logoPath}
           menuItems={menuItems}
         />
 
-        <section className="w-full bg-white dark:bg-neutral-950">
-          <div className="bg-white dark:bg-neutral-950 z-40 border-b border:neutral-400 dark:border-neutral-700 px-6 py-3 flex gap-2 items-end justify-end sticky top-0">
-            <ThemeSwitch />
-            <Button href="/help" variant='secondary' size="sm" className='w-fit gap-1'>
-              <ChatBubbleBottomCenterIcon className='size-5 text-neutral-500'/>
-              Sugerencias
-            </Button>
-            <Button href="/help" variant='ghost-link' size="sm" className='w-fit gap-1'>
-              Ayuda
-              <LifebuoyIcon className='size-5'/>
-            </Button>
-          </div>
+        <MainContentWrapper>
+          <MainTopBar>
+            <SideBarCollapseButton collapsed={collapsed} toggleSidebar={setCollapsed} />
+
+            <div className='flex gap-2 items-center'>
+              <ThemeSwitch />
+              <Button href="/help" variant='secondary' size="sm" className='w-fit gap-1'>
+                <ChatBubbleBottomCenterIcon className='size-5 text-neutral-500'/>
+                Sugerencias
+              </Button>
+              <Button href="/help" variant='ghost-link' size="sm" className='w-fit gap-1'>
+                Ayuda
+                <LifebuoyIcon className='size-5'/>
+              </Button>
+            </div>
+          </MainTopBar>
           <div className="px-6 py-8">
             {children}
           </div>
-        </section>
+        </MainContentWrapper>
       </main>
     </ToastProvider>
   )

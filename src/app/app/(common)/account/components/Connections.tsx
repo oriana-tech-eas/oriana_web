@@ -15,7 +15,7 @@ export default function Connections() {
 							<p className='text-xs text-neutral-500'>Conectado</p>
 						</div>
 					</div>
-					<Button variant='ghost-link-market' size="sm">
+					<Button variant='ghost-link' size="sm">
 						Desconectar
 					</Button>
 				</div>
@@ -30,7 +30,7 @@ export default function Connections() {
 							<p className='text-xs text-neutral-500'>No conectado</p>
 						</div>
 					</div>
-					<Button variant='link-market' size="sm">
+					<Button variant='link' size="sm">
 						Conectar
 					</Button>
 				</div>

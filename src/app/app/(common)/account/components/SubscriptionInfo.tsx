@@ -14,7 +14,7 @@ export default function SubscriptionInfo({ plan }: { plan?: { name: string; expi
 					</p>
 				)}
 			</div>
-			<Button variant='primary-market' className='w-full' href='/app/upgrade'>
+			<Button variant='primary' className='w-full' href='/app/upgrade'>
 				Actualizar plan
 			</Button>
 		</div>

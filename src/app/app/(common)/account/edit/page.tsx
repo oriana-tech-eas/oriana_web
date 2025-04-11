@@ -174,10 +174,10 @@ const ProfileEditPage: NextPage = () => {
 
 					{/* Form Actions */}
 					<div className='mt-8 pt-6 border-t border-neutral-300 dark:border-neutral-700 flex justify-end space-x-4'>
-						<Button variant='secondary-market' href='/app/account'>
+						<Button variant='secondary' href='/app/account'>
 							Cancelar
 						</Button>
-						<Button variant='primary-market' type='submit' disabled={saving}>
+						<Button variant='primary' type='submit' disabled={saving}>
 							{saving ? 'Guardando...' : 'Guardar Cambios'}
 						</Button>
 					</div>
