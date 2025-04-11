@@ -4,6 +4,7 @@ import { MenuItemsProps } from '@/app/app/_shared/@types/menu';
 import ProductSwitcher from './ProductSwitcher';
 import CompanyLogo from './CompanyLogo';
 import Image from 'next/image';
+import { useTheme } from 'next-themes';
 
 interface SideNavProps {
 	collapsed: boolean;
@@ -17,7 +18,12 @@ interface SideNavProps {
 
 
 const SideNav = ({ collapsed, disableProducts = false, disableCompanyLogo = false, menuItems, baseUrl, logo, companyLogo }: SideNavProps) => {
-	const OrianaLogo = collapsed ? '/brand/square/oriana-tech.svg' : '/brand/oriana-tech.svg'
+	const { theme } = useTheme();
+	const isDark = theme === 'dark';
+
+	const OrianaLogo = collapsed
+		? (isDark ? '/brand/white/square/oriana-tech.svg' : '/brand/square/oriana-tech.svg')
+		: (isDark ? '/brand/white/oriana-tech.svg' : '/brand/oriana-tech.svg');
 
 	return (
 		<aside
