@@ -73,20 +73,20 @@ const OnboardingContainer = ({ user }: OnboardingContainerProps) => {
   const progress = (steps.filter(step => step.completed).length / steps.length) * 100;
 
   return (
-    <div className="bg-gradient-to-b from-white dark:from-neutral-900 to-neutral-50 dark:to-neutral-800 bordered-component rounded-lg shadow-sm p-6 mb-6">
+    <div className="bg-gradient-to-br from-rose-400 dark:from-rose-800 to-rose-500 dark:to-rose-950 rounded-lg shadow-sm p-6 mb-6">
       <div className="mb-6">
-        <h2 className="text-2xl font-semibold text-neutral-800 dark:text-neutral-200">Bienvenido, {user.name}</h2>
-        <p className="text-neutral-600 dark:text-neutral-400 mt-1">
+        <h2 className="text-2xl font-semibold text-white">Bienvenido, {user.name}</h2>
+        <p className="text-white/80 mt-1">
           Completa los siguientes pasos para empezar a usar la aplicación.
         </p>
         
-        <div className="w-full bg-neutral-200 dark:bg-neutral-700 rounded-full h-2 mt-4">
+        <div className="w-full bg-white/50 rounded-full h-2 mt-4">
           <div 
             className="bg-green-600 h-2 rounded-full transition-all duration-500 ease-in-out" 
             style={{ width: `${progress}%` }}
           ></div>
         </div>
-        <p className="text-sm text-neutral-500 mt-1">{Math.round(progress)}% completado</p>
+        <p className="text-sm text-white/80 mt-1">{Math.round(progress)}% completado</p>
       </div>
 
       <div className="space-y-3">
@@ -101,7 +101,7 @@ const OnboardingContainer = ({ user }: OnboardingContainerProps) => {
 
       <div className="mt-6 flex justify-between items-center">
         <Button
-          variant='secondary'
+          variant='white-market'
           onClick={handleSkipOnboarding}
         >
           Omitir

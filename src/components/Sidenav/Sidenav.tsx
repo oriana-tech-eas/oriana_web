@@ -1,76 +1,77 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MainNavigation from '@/components/MainNavigation/MainNavigation';
-import Image from 'next/image';
 import UserSubMenu from '@/components/MainNavigation/UserSubMenu';
 import { MenuItemsProps } from '@/app/app/_shared/@types/menu';
 import ProductSwitcher from './ProductSwitcher';
-import LogoUploader from './LogoUploader';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import CompanyLogo from './CompanyLogo';
 
 interface SideNavProps {
 	menuItems: MenuItemsProps[];
 	baseUrl: string;
 	logo: string;
-  companyLogo?: string;
+	companyLogo?: string;
 }
 
 const SideNav = ({ menuItems, baseUrl, logo, companyLogo }: SideNavProps) => {
-  const [showLogoUploader, setShowLogoUploader] = useState(false);
+	const [collapsed, setCollapsed] = useState(false);
+
+	// Handle localStorage persistence
+	useEffect(() => {
+		// Load the collapsed state from localStorage on mount
+		const savedState = localStorage.getItem('sidenavCollapsed');
+		if (savedState) {
+			setCollapsed(savedState === 'true');
+		}
+	}, []);
+
+	// Update localStorage when collapsed state changes
+	useEffect(() => {
+		localStorage.setItem('sidenavCollapsed', collapsed.toString());
+	}, [collapsed]);
+
+	const toggleSidebar = () => {
+		setCollapsed(!collapsed);
+	};
 
 	return (
-		<aside className='h-dvh w-full flex flex-col justify-between md:w-72 bg-white border-r border-neutral-200 dark:border-neutral-700 sticky top-0 dark:bg-neutral-950 z-50'>
-			     <div>
-        <div className="flex flex-col px-3 pt-4">
-          {/* Product switcher */}
-          <ProductSwitcher currentLogo={logo} baseUrl={baseUrl} />
-          
-          {/* Company logo with ability to upload */}
-          <div className="mt-6 mb-3 relative">
-            <div 
-              className="border border-dashed dark:border-neutral-700 rounded-md p-3 flex items-center justify-center cursor-pointer hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors"
-              onClick={() => setShowLogoUploader(true)}
-            >
-              {companyLogo ? (
-                <div className="relative w-full h-16 flex items-center justify-center">
-                  <Image
-                    src={companyLogo}
-                    alt="Company Logo"
-                    width={120}
-                    height={40}
-                    className="max-h-14 object-contain"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-10 transition-opacity rounded-md flex items-center justify-center">
-                    <span className="text-transparent hover:text-neutral-800 dark:hover:text-neutral-200 text-xs font-medium opacity-0 hover:opacity-100 transition-opacity">
-                      Cambiar logo
-                    </span>
-                  </div>
-                </div>
-              ) : (
-                <div className="text-center">
-                  <p className="text-neutral-500 dark:text-neutral-400 text-sm">
-                    Sube el logo de tu empresa
-                  </p>
-                  <p className="text-neutral-400 dark:text-neutral-500 text-xs mt-1">
-                    Haz clic para subir
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-        
-        <MainNavigation menuItems={menuItems} />
-      </div>
-			
-      <UserSubMenu />
+		<aside
+			className={`h-dvh flex flex-col justify-between bg-white border-r border-neutral-200 dark:border-neutral-700 sticky top-0 dark:bg-neutral-950 z-50 transition-all duration-300 ${
+				collapsed ? 'w-20' : 'w-full md:w-72'
+			}`}>
+			<div>
+				<div className='flex flex-col px-3 pt-4'>
+					{/* Product switcher */}
+					<ProductSwitcher
+						currentLogo={logo}
+						baseUrl={baseUrl}
+						collapsed={collapsed}
+					/>
 
-      {showLogoUploader && (
-        <LogoUploader 
-          currentLogo={companyLogo} 
-          onClose={() => setShowLogoUploader(false)} 
-        />
-      )}
+					{/* Company logo with ability to upload */}
+					<CompanyLogo
+            collapsed={collapsed}
+            companyLogo={companyLogo}
+          />
+
+					<button
+						onClick={toggleSidebar}
+						className='p-2 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors'
+						aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}>
+						{collapsed ? (
+							<ChevronRightIcon className='h-5 w-5 text-neutral-500 dark:text-neutral-400' />
+						) : (
+							<ChevronLeftIcon className='h-5 w-5 text-neutral-500 dark:text-neutral-400' />
+						)}
+					</button>
+				</div>
+
+				<MainNavigation menuItems={menuItems} collapsed={collapsed} />
+			</div>
+
+			<UserSubMenu collapsed={collapsed} />
 		</aside>
 	);
 };

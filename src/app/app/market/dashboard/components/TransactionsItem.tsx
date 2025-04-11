@@ -18,7 +18,7 @@ const TransactionItem = ({ transaction }: { transaction: Transaction}) => {
   }
 
 	return (
-		<li className='py-4 flex items-center justify-between'>
+		<li className='py-2 flex items-center justify-between'>
 			<div className='flex items-center gap-2'>
 				<div className={`${TransactionTypeColors[type]} size-10 rounded-lg flex items-center justify-center`}>
           {TransactionIcons[type]}

@@ -9,8 +9,12 @@ import ThemeSwitch from "@/components/ThemeSwitch/ThemeSwitch";
 import { ToastProvider } from "@/components/Toast/ToastProvider";
 import { ContactsProvider } from "../_context/ContactsContext";
 import SideNav from "@/components/Sidenav/Sidenav";
+import { useTheme } from "next-themes";
 
 export default function MarketLayout({ children }: { children: React.ReactNode }) {
+  const { resolvedTheme } = useTheme()
+  const isDark = resolvedTheme === 'dark'
+
   // const { user } = useAuth({ middleware: 'auth' });
 
   // if (!user) {
@@ -30,13 +34,17 @@ export default function MarketLayout({ children }: { children: React.ReactNode }
     { href: `${MARKET_BASE_URL}/preferences/categories`, icon: Cog8ToothIcon, text: 'Preferencias' },
   ]
 
+  const logoPath = isDark 
+  ? "/brand/white/oriana-market.svg"
+  : "/brand/oriana-market.svg"
+
   return (
     <ContactsProvider>
       <ToastProvider>
         <main className="flex flex-col md:flex-row">
           <SideNav
             baseUrl="/app/market/dashboard"
-            logo="/brand/oriana-market.svg"
+            logo={logoPath}
             menuItems={menuItems}
           />
           <section className="w-full bg-white dark:bg-neutral-950">

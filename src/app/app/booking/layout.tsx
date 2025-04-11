@@ -14,12 +14,15 @@ import Button from '@/components/Button/Button'
 import ThemeSwitch from '@/components/ThemeSwitch/ThemeSwitch'
 import SideNav from '@/components/Sidenav/Sidenav'
 import { ToastProvider } from '@/components/Toast/ToastProvider'
+import { useTheme } from 'next-themes'
 
 interface LayoutProps {
   children: React.ReactNode
 }
 
 const BookingLayout = ({ children }: LayoutProps) => {
+  const { resolvedTheme } = useTheme()
+  const isDark = resolvedTheme === 'dark'
   const BOOKING_BASE_URL = '/app/booking'
 
   const menuItems = [
@@ -30,12 +33,16 @@ const BookingLayout = ({ children }: LayoutProps) => {
     { href: `${BOOKING_BASE_URL}/staff`, icon: UserGroupIcon, text: 'Personal' },
   ]
 
+  const logoPath = isDark 
+  ? "/brand/white/oriana-booking.svg"
+  : "/brand/oriana-booking.svg"
+
   return (
     <ToastProvider>
       <main className="flex flex-col md:flex-row">
         <SideNav 
           baseUrl="/app/booking/dashboard"
-          logo="/brand/oriana-booking.svg"
+          logo={logoPath}
           menuItems={menuItems}
         />
 
