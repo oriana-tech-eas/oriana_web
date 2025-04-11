@@ -12,10 +12,10 @@ const Toast = ({ message, type }: ToastProps) => {
   const [display, setDisplay] = useState(true)
 
   const ToastVariants = {
-    success: 'bg-green-100 text-green-500 dark:bg-green-500 dark:text-white',
-    error: 'bg-red-100 text-red-500 dark:bg-red-500 dark:text-white',
-    warning: 'bg-yellow-100 text-yellow-500 dark:bg-yellow-500 dark:text-white',
-    info: 'border border-blue-300 rounded bg-blue-100 text-blue-500 dark:bg-blue-500 dark:text-white',
+    success: 'border border-green-300 bg-green-50 text-green-800 dark:bg-green-500 dark:text-white',
+    error: 'border border-red-300 bg-red-50 text-red-800 dark:bg-red-500 dark:text-white',
+    warning: 'border border-yellow-300 bg-yellow-50 text-yellow-800 dark:bg-yellow-500 dark:text-white',
+    info: 'border border-blue-300 rounded bg-blue-50 text-blue-800 dark:bg-blue-500 dark:text-white',
   }
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const Toast = ({ message, type }: ToastProps) => {
   }, [])
   
   return (
-    <div className={`fixed z-50 top-4 right-4 p-3 rounded-md shadow-lg ${display ? 'translate-y-0 opacity-100 pointer-events-auto' : 'translate-y-5 opacity-0 pointer-events-none'} ${ToastVariants[type]}`}>
+    <div className={`fixed z-50 bottom-4 right-4 p-3 rounded-md shadow duration-300 delay-75 ${display ? 'translate-y-0 opacity-100 pointer-events-auto' : 'translate-y-5 opacity-0 pointer-events-none'} ${ToastVariants[type]}`}>
       <div className="flex items-center justify-between">
         <div className="flex items-center">
           <div className="mx-2">
