@@ -11,7 +11,7 @@ interface AvatarProps {
 const Avatar = ({ initials, url, name, size, className }: AvatarProps ) => {
   return (
     <div className={
-      `rounded-full flex items-center justify-center bg-neutral-200 dark:bg-neutral-700 ${AVAILABLE_SIZES[size]} ${className}`
+      `rounded-full flex items-center justify-center bg-neutral-200 dark:bg-neutral-700 ${AVAILABLE_SIZES[size]} ${className || ''}`
     }>
       {
         url ? (

@@ -89,7 +89,7 @@ const OnboardingContainer = ({ user }: OnboardingContainerProps) => {
         <p className="text-sm text-white/80 mt-1">{Math.round(progress)}% completado</p>
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-2">
         {steps.map(step => (
           <OnboardingStep
             key={step.id}

@@ -1,5 +1,5 @@
 import { useAuth } from "@/hooks/useAuth";
-import { useFloating, useDismiss, useInteractions, offset } from "@floating-ui/react";
+import { useFloating, useDismiss, useInteractions, offset, useClick, shift, autoUpdate } from "@floating-ui/react";
 import { ArrowLeftEndOnRectangleIcon, BuildingOffice2Icon, ChevronRightIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useState } from "react";
@@ -16,24 +16,31 @@ const UserSubMenu = ({ collapsed = false }: UserSubMenuProps) => {
   const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
     onOpenChange: setIsOpen,
-    middleware: [offset(10)],
-    placement: collapsed ? 'right' : 'right-end',
+    middleware: [
+      offset(10),
+      shift()
+    ],
+    whileElementsMounted: autoUpdate,
+    placement: collapsed ? 'top-start' : 'right-end',
   })
   const dismiss = useDismiss(context);
-  const { getFloatingProps } = useInteractions([
+  const click = useClick(context);
+  const { getFloatingProps, getReferenceProps } = useInteractions([
     dismiss,
+    click
   ]);
 
   const userButtonContent = (
     <button
       type='button'
       ref={refs.setReference}
+      {...getReferenceProps()}
       onClick={() => setIsOpen(!isOpen)}
-      className={`border border-neutral-300 dark:border-neutral-600 rounded-lg p-2 
-        ${collapsed ? 'w-14 h-14 mx-auto' : 'w-full'} flex justify-between items-center gap-2`}
+      className={`rounded-lg
+        ${collapsed ? 'size-14 mx-auto' : 'w-full bordered-component p-2 gap-2'} flex justify-between items-center`}
     >
-      <div className={`flex gap-2 flex-nowrap ${collapsed ? 'justify-center w-full' : ''}`}>
-        <Avatar initials="AF" size="xs" name="Anderson Fariña"/>        
+      <div className={`${collapsed ? 'justify-center w-full' : 'gap-2 flex flex-nowrap '}`}>
+        <Avatar initials="AF" size={collapsed ? 'md' : 'xs'} name="Anderson Fariña"/>        
         {!collapsed && (
           <p className='dark:text-neutral-100 text-nowrap text-ellipsis overflow-hidden'>
             {user?.name || 'Nombre'}

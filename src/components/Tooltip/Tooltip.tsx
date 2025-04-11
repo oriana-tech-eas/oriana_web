@@ -7,9 +7,10 @@ interface TooltipProps {
   children: React.ReactNode;
   content: React.ReactNode;
   placement?: Placement;
+  className?: string;
 }
 
-export const Tooltip = ({ children, content, placement = 'top' }: TooltipProps) => {
+export const Tooltip = ({ children, content, placement = 'top', className }: TooltipProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const arrowRef = React.useRef(null);
 
@@ -37,7 +38,7 @@ export const Tooltip = ({ children, content, placement = 'top' }: TooltipProps) 
 
   return (
     <div 
-      className="relative inline-block"
+      className={`relative inline-block ${className || ''}`}
       onMouseEnter={showTooltip}
       onMouseLeave={hideTooltip}
       onFocus={showTooltip}
@@ -54,7 +55,7 @@ export const Tooltip = ({ children, content, placement = 'top' }: TooltipProps) 
             ...floatingStyles,
             zIndex: 50,
           }}
-          className="bg-neutral-800 text-white text-sm rounded-md py-1 px-2 z-50 max-w-xs"
+          className="bg-neutral-800 text-white text-sm rounded-md py-1 px-2 z-50 max-w-sm"
         >
           {content}
           <div

@@ -18,7 +18,7 @@ const MainNavigation = ({
 					<li key={index}>
 						<MenuItem href={item.href} collapsed={collapsed}>
 							{<item.icon className='size-5' />}
-							{!collapsed && item.text}
+							{item.text}
 						</MenuItem>
 					</li>
 				))}

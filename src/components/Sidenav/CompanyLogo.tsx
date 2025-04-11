@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import LogoUploader from './LogoUploader';
 import Image from 'next/image';
+import { ArrowUpTrayIcon } from '@heroicons/react/16/solid';
 
 export default function CompanyLogo({
 	collapsed,
@@ -17,7 +18,7 @@ export default function CompanyLogo({
 		<>
 			<div className='mt-6 mb-3 relative'>
 				<div
-					className='border border-dashed dark:border-neutral-700 rounded-md p-3 flex items-center justify-center cursor-pointer hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors'
+					className={`${!companyLogo && 'border border-dashed dark:border-neutral-700'} rounded-md p-3 flex items-center justify-center cursor-pointer hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors`}
 					onClick={() => setShowLogoUploader(true)}>
 					{companyLogo ? (
 						<div className='relative w-full h-16 flex items-center justify-center'>
@@ -37,7 +38,7 @@ export default function CompanyLogo({
 					) : (
 						<div className='text-center'>
 							<p className='text-neutral-500 dark:text-neutral-400 text-sm'>
-								{collapsed ? 'Logo' : 'Sube tu logo'}
+								{collapsed ? <ArrowUpTrayIcon width={16} height={16} /> : 'Subí tu logo'}
 							</p>
 							{!collapsed && (
 								<p className='text-neutral-400 dark:text-neutral-500 text-xs mt-1'>

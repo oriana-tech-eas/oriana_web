@@ -71,7 +71,6 @@ const ProductSwitcher = ({ currentLogo, baseUrl, collapsed = false }: { currentL
 
   // Determine which product is active based on the currentLogo path
   const findProductByLogo = (logoPath: string): ProductOption => {
-    // Extract the product name from the path (e.g., 'market' from 'oriana-market.svg')
     const match = logoPath.match(/oriana-(\w+)/i);
     const productName = match ? match[1] : null;
     
@@ -82,7 +81,6 @@ const ProductSwitcher = ({ currentLogo, baseUrl, collapsed = false }: { currentL
       if (foundProduct) return foundProduct;
     }
     
-    // Default to first product if no match
     return products[0];
   };
 
@@ -96,7 +94,6 @@ const ProductSwitcher = ({ currentLogo, baseUrl, collapsed = false }: { currentL
     }
   };
 
-  // Set up floating UI for dropdown
   const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
     onOpenChange: setIsOpen,

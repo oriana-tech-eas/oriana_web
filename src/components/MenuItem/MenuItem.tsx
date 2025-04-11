@@ -34,7 +34,7 @@ const MenuItem = ({ children, href, collapsed = false }: MenuItemProps ) => {
 
   if (collapsed && label) {
     return (
-      <Tooltip content={label} placement="right">
+      <Tooltip content={label} placement="right" className='w-full'>
         {itemContent}
       </Tooltip>
     );
