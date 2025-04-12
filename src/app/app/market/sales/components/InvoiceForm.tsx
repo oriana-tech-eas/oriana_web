@@ -51,7 +51,6 @@ const InvoiceForm = ({ type, getContacts, getProducts, onSubmit }: InvoiceFormPr
   const [notes, setNotes] = useState<string>('')
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
 
-  // Load contacts and products using the provided functions
   const { contacts } = getContacts({
     pageNumber: 1,
     contactsType: 'customer',
@@ -152,7 +151,6 @@ const InvoiceForm = ({ type, getContacts, getProducts, onSubmit }: InvoiceFormPr
     }))
   }
 
-  // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!selectedContact || invoiceItems.length === 0) {
