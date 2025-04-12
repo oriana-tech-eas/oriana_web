@@ -4,7 +4,6 @@ import RecentTransactions from './components/RecentTransactions';
 import { OnboardingProvider } from '../../_context/OnboardingContext';
 import OnboardingContainer from '@/components/Onboarding/OnboardingContainer';
 import { useAuth } from '@/hooks/useAuth';
-import { ChartBarIcon, PlusIcon } from '@heroicons/react/24/outline';
 import OverallStats from './components/OverAllStats';
 import QuickAccess from './components/QuickAccess';
 import Activity from './components/Activity';
@@ -17,7 +16,7 @@ const DashboardPage = () => {
 		<OnboardingProvider>
 			<div className='grid grid-cols-12'>
 				<div className='col-span-12 md:col-span-8 px-5'>
-					{user && <OnboardingContainer user={user} />}
+					{/* {user && <OnboardingContainer user={user} />} */}
 					<OverallStats />
 					<RecentTransactions />
 				</div>

@@ -1,15 +1,19 @@
 import Button from '@/components/Button/Button';
 import Container from '@/components/Container/Container';
-import PageTitle from '@/components/PageTitle/PageTitle';
 import Table from '@/components/Table/Table';
 import TableCell from '@/components/Table/TableCell';
 import TableRow from '@/components/Table/TableRow';
 import { mockSales } from '../sales/sales.mock';
+import PageTitleLarge from '@/components/PageTitle/PageTitleLarge';
 
 const Quotes = () => {
 	return (
 		<Container>
-			<PageTitle>Cotizaciones</PageTitle>
+			<PageTitleLarge
+        title='Cotizaciones'
+        action='/app/market/quotes/new'
+        actionLabel='Nueva cotización'
+      />
 
 			<div className='mt-8'>
 				<Table data={{ columns: ['#', 'Cliente', 'Fecha', 'Monto', ''] }}>

@@ -3,6 +3,7 @@ import Container from '@/components/Container/Container';
 import PageTitle from '@/components/PageTitle/PageTitle';
 import PageContent from './PageContent';
 import { ArrowUpCircleIcon } from '@heroicons/react/24/outline';
+import { MARKET_BASE_URL } from '@/utils/constants';
 
 export const metadata = {
 	title: 'Printit: Ventas',
@@ -18,7 +19,7 @@ const Sales = () => {
           </div>
           <PageTitle>Ventas</PageTitle>
         </div>
-        <Button href='/app/sales/new' variant='primary-market' className='w-fit'>
+        <Button href={`${MARKET_BASE_URL}/sales/new`} variant='primary-market' className='w-fit'>
           Nueva venta
         </Button>
       </div>

@@ -1,4 +1,4 @@
-import { ChartBarIcon } from "@heroicons/react/24/outline";
+import { ArrowUpCircleIcon, ChartBarIcon, CubeIcon, UserGroupIcon } from "@heroicons/react/24/outline";
 import QuickAccessItem from "./QuickAccessItem";
 
 const QuickAccess = () => {
@@ -9,22 +9,22 @@ const QuickAccess = () => {
 			<div className='grid grid-cols-2 gap-3'>
 				<QuickAccessItem
 					href='/app/market/reports'
-					icon={<ChartBarIcon />}
+					icon={<ChartBarIcon className="size-5" />}
 					text='Reportes'
 				/>
 				<QuickAccessItem
 					href='/app/market/contacts'
-					icon={<ChartBarIcon />}
+					icon={<UserGroupIcon className="size-5" />}
 					text='Contactos'
 				/>
 				<QuickAccessItem
 					href='/app/market/products'
-					icon={<ChartBarIcon />}
+					icon={<CubeIcon className="size-5" />}
 					text='Productos'
 				/>
 				<QuickAccessItem
 					href='/app/market/sales'
-					icon={<ChartBarIcon />}
+					icon={<ArrowUpCircleIcon className="size-5" />}
 					text='Ventas'
 				/>
 			</div>

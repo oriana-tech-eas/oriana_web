@@ -2,27 +2,27 @@
 
 import { useGetContacts } from '../../contacts/_domain/contacts'
 import { useProducts } from '../../products/_domain/products'
-import InvoiceForm from '../components/InvoiceForm'
+import InvoiceForm from '../../sales/components/InvoiceForm'
 import { useToast } from '@/components/Toast/ToastProvider'
-import { useCreateSale } from '../_domain/sales'
+import { useCreateQuote } from '../../sales/_domain/sales'
 
-const NewSalePage = () => {
+const NewQuotePage = () => {
   const { addToast } = useToast()
-  const { createSale, errors, isLoading } = useCreateSale()
+  const { createQuote, errors, isLoading } = useCreateQuote()
 
   const handleSubmit = async (data: any) => {
     try {
-      await createSale(data)
-      addToast('Venta registrada correctamente', 'success')
+      await createQuote(data)
+      addToast('Cotización creada correctamente', 'success')
       return Promise.resolve()
     } catch (error) {
-      console.error('Error creating invoice:', error)
+      console.error('Error creating quotation:', error)
       
       // Show detailed errors or generic message
       if (errors.general) {
         addToast(errors.general[0], 'error')
       } else {
-        addToast('Error al registrar la venta', 'error')
+        addToast('Error al crear la cotización', 'error')
       }
       
       return Promise.reject(error)
@@ -31,7 +31,7 @@ const NewSalePage = () => {
 
   return (
     <InvoiceForm
-      type="invoice"
+      type="quote"
       getContacts={useGetContacts}
       getProducts={useProducts}
       onSubmit={handleSubmit}
@@ -39,4 +39,4 @@ const NewSalePage = () => {
   )
 }
 
-export default NewSalePage
+export default NewQuotePage
