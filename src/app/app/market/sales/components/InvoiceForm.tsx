@@ -97,7 +97,7 @@ const InvoiceForm = ({ type, getContacts, getProducts, onSubmit }: InvoiceFormPr
   }
 
   // Add selected product to invoice items
-  const addItemToInvoice = () => {
+  const addItemToInvoice = React.useCallback(() => {
     if (selectedProduct) {
       const newItem: InvoiceItem = {
         id: Date.now(), // Temporary ID
@@ -115,7 +115,7 @@ const InvoiceForm = ({ type, getContacts, getProducts, onSubmit }: InvoiceFormPr
       setCurrentItemDiscount(0)
       setProductQuery('')
     }
-  }
+  }, [selectedProduct, currentItemQuantity, currentItemDiscount, invoiceItems])
 
   // Remove item from invoice
   const removeItem = (itemId: number) => {
@@ -197,7 +197,7 @@ const InvoiceForm = ({ type, getContacts, getProducts, onSubmit }: InvoiceFormPr
     if (selectedProduct) {
       addItemToInvoice()
     }
-  }, [selectedProduct])
+  }, [selectedProduct, addItemToInvoice])
 
   return (
     <Container>
