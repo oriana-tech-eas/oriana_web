@@ -169,7 +169,7 @@ export const useDeleteContact = () => {
     try {
       await repository.deleteContact(id);
       refreshContactsList();
-      router.push('/app/contacts');
+      router.push('/app/market/contacts');
     } catch (error) {
       console.error('Error deleting contact:', error);
       throw error;

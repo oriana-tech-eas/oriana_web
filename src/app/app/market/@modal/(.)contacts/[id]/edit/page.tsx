@@ -16,11 +16,11 @@ const EditContactModal = ({ params }: { params: { id: number } }) => {
 
   const handleSuccess = () => {
     refreshContacts()
-    router.push('/app/contacts')
+    router.back()
   }
 
   const handleCancel = () => {
-    router.push('/app/contacts')
+    router.back()
   }
 
   if (isLoading) {

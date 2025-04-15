@@ -11,7 +11,7 @@ const CustomerDetailModal = ({ params }: { params: { id: number} }) => {
   const { contact, error, isLoading } = useGetContact(id)
   const { deleteContact } = useDeleteContact()
 
-  const handleDelete = () => {
+  const handleDelete = (id: number) => {
     try {
       deleteContact(id)
     } catch (error) {
@@ -34,7 +34,8 @@ const CustomerDetailModal = ({ params }: { params: { id: number} }) => {
                 <p>{ contact.phone }</p>
               </div>
               <div className='p-5 flex gap-2'>
-                <Button href={`/app/contacts/${id}/edit`} variant='secondary'>Editar</Button>
+                <Button href={`/app/market/contacts/${id}/edit`} variant='secondary'>Editar</Button>
+                <Button onClick={() => handleDelete(id)} variant='danger'>Eliminar</Button>
               </div>
             </>
           )

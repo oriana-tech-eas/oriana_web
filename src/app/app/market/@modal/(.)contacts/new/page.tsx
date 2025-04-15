@@ -14,12 +14,12 @@ const ContactsNewPage = () => {
   const handleSuccess = () => {
     refreshContacts()
     // Force redirect to contacts main page instead of going back
-    router.push('/app/contacts')
+    router.push('/app/market/contacts')
   }
 
   const handleCancel = () => {
     // Force redirect to contacts main page instead of going back to avoid modal issues
-    router.push('/app/contacts')
+    router.push('/app/market/contacts')
   }
 
   return (

@@ -15,7 +15,11 @@ import { MARKET_BASE_URL } from "@/utils/constants";
 import MainContentWrapper from "@/components/Layout/MainContent";
 import MainTopBar from "@/components/Layout/MainTopBar";
 
-export default function MarketLayout({ children }: { children: React.ReactNode }) {
+interface LayoutProps {
+  children: React.ReactNode
+}
+
+export default function MarketLayout({ children }: LayoutProps) {
   const { resolvedTheme } = useTheme()
   const isDark = resolvedTheme === 'dark'
   const [collapsed, setCollapsed] = useState(false);
