@@ -34,5 +34,9 @@ export const SelectTheme = (theme: any) => ({
 })
 
 export const formatDateTime = (date: string) => {
-  return new Date(date).toLocaleDateString('es-PY')
+  const parsedDate = new Date(date);
+  if (isNaN(parsedDate.getTime())) {
+    return '-';
+  }
+  return parsedDate.toLocaleDateString('es-PY');
 }

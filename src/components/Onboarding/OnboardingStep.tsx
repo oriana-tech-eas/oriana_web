@@ -1,5 +1,5 @@
 import { Step } from '@/app/app/_shared/@types/onboarding';
-import { CheckCircleIcon, MinusCircleIcon } from '@heroicons/react/24/outline';
+import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/outline';
 import Button from '../Button/Button';
 
 interface OnboardingStepProps {
@@ -11,10 +11,10 @@ const OnboardingStep = ({ step, onClick }: OnboardingStepProps) => {
   return (
     <div 
       className={`
-        flex items-center p-4 rounded-lg border transition-all cursor-pointer
+        flex items-center py-2 px-3 rounded-lg transition-all cursor-pointer
         ${step.completed 
-          ? 'border-green-300 bg-green-50' 
-          : 'border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 hover:bg-neutral-50'}
+          ? 'bg-green-50 dark:bg-green-800' 
+          : 'bg-black/10 dark:bg-black/20'}
       `}
       onClick={onClick}
     >
@@ -22,20 +22,20 @@ const OnboardingStep = ({ step, onClick }: OnboardingStepProps) => {
         {step.completed ? (
           <CheckCircleIcon className="w-8 h-8 text-green-500" />
         ) : (
-          <MinusCircleIcon className="w-8 h-8 text-neutral-300" />
+          <XCircleIcon className="w-8 h-8 text-white" />
         )}
       </div>
       
       <div className="flex-grow">
-        <h3 className={`font-medium ${step.completed ? 'text-green-700 dark:text-green-500' : 'text-neutral-800 dark:text-neutral-100'}`}>
+        <h3 className={`font-medium ${step.completed ? 'text-green-700 dark:text-green-500' : 'text-white dark:text-neutral-100'}`}>
           {step.title}
         </h3>
-        <p className="text-sm text-neutral-500">{step.description}</p>
+        <p className="text-sm text-neutral-200">{step.description}</p>
       </div>
       
       <div className="ml-4">
         <Button
-          variant={step.completed ? 'secondary' : 'neutral-outline'} 
+          variant={step.completed ? 'secondary' : 'white-outline'} 
           size='sm'
         >
           {step.completed ? 'Editar' : 'Iniciar'}

@@ -1,4 +1,4 @@
-FROM node:18-alpine AS builder
+FROM node:23-alpine AS builder
 
 WORKDIR /app
 
@@ -9,10 +9,10 @@ COPY . .
 RUN npm run build
 
 # Production image
-FROM node:18-alpine AS runner
+FROM node:23-alpine AS runner
 WORKDIR /app
 
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 # Create system user for running the app
 RUN addgroup --system --gid 1001 nodejs
@@ -32,8 +32,8 @@ USER nextjs
 # Expose port
 EXPOSE 3000
 
-ENV PORT 3000
-ENV HOSTNAME "0.0.0.0"
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
 
 # Start the application
 CMD ["node", "server.js"]

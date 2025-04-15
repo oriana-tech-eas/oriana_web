@@ -1,4 +1,3 @@
-// context/OnboardingContext.tsx
 import { createContext, useContext, useReducer, useEffect, ReactNode } from 'react';
 import { Step, OnboardingState, OnboardingAction, OnboardingContextType } from '@/app/app/_shared/@types/onboarding';
 
