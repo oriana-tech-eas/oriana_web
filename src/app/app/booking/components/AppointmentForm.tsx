@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { format, addMinutes, parse } from 'date-fns'
 import Button from '@/components/Button/Button'
 import Input from '@/components/Input/Input'
@@ -25,7 +25,9 @@ interface AppointmentFormProps {
   preselectedDate?: string  // Format: YYYY-MM-DD
 }
 
-const AppointmentForm = ({ initialData, preselectedDate }: AppointmentFormProps) => {
+const AppointmentForm = ({ initialData }: AppointmentFormProps) => {
+  const searchParams = useSearchParams();
+  const preselectedDate = searchParams.get('date') || undefined;
   const router = useRouter()
   const { addToast } = useToast()
   const isEditing = !!initialData
