@@ -19,6 +19,7 @@ import SideBarCollapseButton from '@/components/Sidenav/SideBarCollapseButton'
 import { BOOKING_BASE_URL } from '@/utils/constants'
 import MainTopBar from '@/components/Layout/MainTopBar'
 import MainContentWrapper from '@/components/Layout/MainContent'
+import { localStorageAdapter } from '@/utils/storageAdapter'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -30,14 +31,14 @@ const BookingLayout = ({ children }: LayoutProps) => {
   const [collapsed, setCollapsed] = useState(false);
 
   useEffect(() => {
-    const savedState = localStorage.getItem('SideNavCollapsed');
+    const savedState = localStorageAdapter.getItem('SideNavCollapsed');
     if (savedState) {
       setCollapsed(savedState === 'true');
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('SideNavCollapsed', collapsed.toString());
+    localStorageAdapter.setItem('SideNavCollapsed', collapsed.toString());
   }, [collapsed]);
 
 

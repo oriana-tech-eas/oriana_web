@@ -10,7 +10,7 @@ import InputLabel from '@/components/InputLabel/InputLabel'
 import ContactsListSkeleton from './components/ContactsListSkeleton'
 import ContactsList from './components/ContactsList'
 import Select from 'react-select'
-import { formatDateTime, SelectTheme } from '@/utils'
+import { formatDateTime } from '@/utils'
 
 const contactsTypes = [
   { value: 'all', label: 'Todos' },

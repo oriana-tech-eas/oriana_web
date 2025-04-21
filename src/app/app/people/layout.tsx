@@ -19,6 +19,7 @@ import { useTheme } from 'next-themes'
 import MainContentWrapper from '@/components/Layout/MainContent'
 import MainTopBar from '@/components/Layout/MainTopBar'
 import SideBarCollapseButton from '@/components/Sidenav/SideBarCollapseButton'
+import { localStorageAdapter } from '@/utils/storageAdapter'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -30,14 +31,14 @@ const PeopleLayout = ({ children }: LayoutProps) => {
   const [collapsed, setCollapsed] = useState(false);
 
   useEffect(() => {
-    const savedState = localStorage.getItem('SideNavCollapsed');
+    const savedState = localStorageAdapter.getItem('SideNavCollapsed');
     if (savedState) {
       setCollapsed(savedState === 'true');
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('SideNavCollapsed', collapsed.toString());
+    localStorageAdapter.setItem('SideNavCollapsed', collapsed.toString());
   }, [collapsed]);
 
   const menuItems = [
