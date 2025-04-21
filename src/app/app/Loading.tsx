@@ -6,10 +6,10 @@ const Loading = () => {
       <div className='flex flex-col items-center justify-center'>
         <Image 
           className="animate-pulse"
-          src="/printit.svg"
-          width={50} 
+          src="/brand/oriana-tech.svg"
+          width={120} 
           height={50} 
-          alt="Printit Logo"
+          alt="Oriana Tech"
           priority
         />
         <p className='text-lg dark:text-neutral-200 mt-4'>Cargando...</p>

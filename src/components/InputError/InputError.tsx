@@ -1,7 +1,7 @@
 import React from 'react';
 
 const InputError = ({
-	messages,
+	messages = [],
 	className,
 }: {
 	messages: Array<string>;

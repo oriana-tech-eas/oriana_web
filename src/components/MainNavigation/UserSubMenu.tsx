@@ -1,39 +1,66 @@
 import { useAuth } from "@/hooks/useAuth";
-import { useFloating, useDismiss, useInteractions, offset } from "@floating-ui/react";
+import { useFloating, useDismiss, useInteractions, offset, useClick, shift, autoUpdate } from "@floating-ui/react";
 import { ArrowLeftEndOnRectangleIcon, BuildingOffice2Icon, ChevronRightIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useState } from "react";
 import Avatar from "../Avatar/Avatar";
+import { Tooltip } from "../Tooltip/Tooltip";
 
-const UserSubMenu = () => {
+interface UserSubMenuProps {
+  collapsed?: boolean;
+}
+
+const UserSubMenu = ({ collapsed = false }: UserSubMenuProps) => {
   const { user, logout } = useAuth({ middleware: 'guest' })
   const [isOpen, setIsOpen] = useState(false)
   const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
     onOpenChange: setIsOpen,
-    middleware: [offset(10)],
-    placement: 'right-end',
+    middleware: [
+      offset(10),
+      shift()
+    ],
+    whileElementsMounted: autoUpdate,
+    placement: collapsed ? 'top-start' : 'right-end',
   })
   const dismiss = useDismiss(context);
-  const { getFloatingProps } = useInteractions([
+  const click = useClick(context);
+  const { getFloatingProps, getReferenceProps } = useInteractions([
     dismiss,
+    click
   ]);
+
+  const userButtonContent = (
+    <button
+      type='button'
+      ref={refs.setReference}
+      {...getReferenceProps()}
+      onClick={() => setIsOpen(!isOpen)}
+      className={`rounded-lg
+        ${collapsed ? 'size-14 mx-auto' : 'w-full bordered-component p-2 gap-2'} flex justify-between items-center`}
+    >
+      <div className={`${collapsed ? 'justify-center w-full' : 'gap-2 flex flex-nowrap '}`}>
+        <Avatar initials="AF" size={collapsed ? 'md' : 'xs'} name="Anderson Fariña"/>        
+        {!collapsed && (
+          <p className='dark:text-neutral-100 text-nowrap text-ellipsis overflow-hidden'>
+            {user?.name || 'Nombre'}
+          </p>
+        )}
+      </div>
+      {!collapsed && <ChevronRightIcon className="size-5 text-neutral-800 dark:text-neutral-100"/>}
+    </button>
+  );
 
   return (
     <>
-      <div className="flex flex-col px-4 mb-5">
-        <button
-          type='button'
-          ref={refs.setReference}
-          onClick={() => setIsOpen(!isOpen)}
-          className="border border-neutral-300 dark:border-neutral-600 rounded-lg p-2 w-full flex justify-between items-center gap-2"
-        >
-          <div className="flex gap-2 flex-nowrap">
-            <Avatar initials="AF" size="xs" name="Anderson Fariña"/>        
-            <p className='dark:text-neutral-100 text-nowrap text-ellipsis'>{ user?.name || 'Nombre' }</p>
-          </div>
-          <ChevronRightIcon className="size-5 text-neutral-800 dark:text-neutral-100"/>
-        </button>
+      <div className={`flex flex-col ${collapsed ? 'px-2' : 'px-4'} mb-5`}>
+        {collapsed ? (
+          <Tooltip content={`${user?.name || 'Perfil'}`} placement="right">
+            {userButtonContent}
+          </Tooltip>
+        ) : (
+          userButtonContent
+        )}
       </div>
       { 
         <div 
