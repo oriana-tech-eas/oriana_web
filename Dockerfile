@@ -15,8 +15,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 # Create system user for running the app
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nextjs
 
 # Copy built application
 COPY --from=builder /app/public ./public

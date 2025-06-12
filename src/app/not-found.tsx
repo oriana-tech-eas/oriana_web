@@ -15,7 +15,7 @@ const NotFound = () => {
           </p>
         </div>
           
-        <Link href="/app/dashboard" className="bg-rose-500 text-white rounded-lg p-2 w-full">Volver al inicio</Link>
+        <Link href="/" className="bg-rose-500 text-white rounded-lg p-2 w-full">Volver al inicio</Link>
       </div>
     </div>
   )

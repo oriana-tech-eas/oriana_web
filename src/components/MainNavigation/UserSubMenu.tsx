@@ -11,7 +11,7 @@ interface UserSubMenuProps {
 }
 
 const UserSubMenu = ({ collapsed = false }: UserSubMenuProps) => {
-  const { user, logout } = useAuth({ middleware: 'guest' })
+  const { user, logout } = useAuth()
   const [isOpen, setIsOpen] = useState(false)
   const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
@@ -43,7 +43,7 @@ const UserSubMenu = ({ collapsed = false }: UserSubMenuProps) => {
         <Avatar initials="AF" size={collapsed ? 'md' : 'xs'} name="Anderson Fariña"/>        
         {!collapsed && (
           <p className='dark:text-neutral-100 text-nowrap text-ellipsis overflow-hidden'>
-            {user?.name || 'Nombre'}
+            {user?.name ?? 'Nombre'}
           </p>
         )}
       </div>
@@ -55,7 +55,7 @@ const UserSubMenu = ({ collapsed = false }: UserSubMenuProps) => {
     <>
       <div className={`flex flex-col ${collapsed ? 'px-2' : 'px-4'} mb-5`}>
         {collapsed ? (
-          <Tooltip content={`${user?.name || 'Perfil'}`} placement="right">
+          <Tooltip content={`${user?.name ?? 'Perfil'}`} placement="right">
             {userButtonContent}
           </Tooltip>
         ) : (

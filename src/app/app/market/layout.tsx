@@ -48,12 +48,6 @@ export default function MarketLayout({ children, modal }: LayoutProps) {
     localStorageAdapter.setItem("SideNavCollapsed", collapsed.toString());
   }, [collapsed]);
 
-  // const { user } = useAuth({ middleware: 'auth' });
-
-  // if (!user) {
-  //   return <Loading />;
-  // }
-
   const menuItems = [
     { href: `${MARKET_BASE_URL}/dashboard`, icon: HomeIcon, text: "Inicio" },
     {
