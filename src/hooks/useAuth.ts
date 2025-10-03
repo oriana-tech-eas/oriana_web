@@ -9,8 +9,11 @@ export const useAuth = () => {
   useEffect(() => {
     if (status === 'authenticated' && session?.user) {
       setUser({
+        id: session.user.email ?? '',
         name: session.user.name ?? '',
         email: session.user.email ?? '',
+        username: session.user.email?.split('@')[0] ?? '',
+        initials: session.user.name?.split(' ').map(n => n[0]).join('').toUpperCase() ?? '',
       })
     } else {
       setUser(null)
