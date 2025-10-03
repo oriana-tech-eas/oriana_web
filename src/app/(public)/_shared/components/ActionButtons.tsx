@@ -1,5 +1,8 @@
+'use client';
+
 import Button from "@/components/Button/Button";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
 
 export default function ActionButtons({ closeMenu, orientation }: { closeMenu: () => void, orientation: 'mobile' | 'desktop' }) {
   const loadClass = {
@@ -11,16 +14,22 @@ export default function ActionButtons({ closeMenu, orientation }: { closeMenu: (
 		<>
 			<Button
 				variant='secondary'
-				href="/login"
-				onClick={closeMenu}>
+				onClick={() =>{
+					closeMenu();
+					signIn('keycloak')
+				}}>
 				Iniciar Sesión
 			</Button>
-			<Link
-				href="/register"
+			<Button
+				variant='primary'
+				onClick={() => {
+					closeMenu();
+					signIn('keycloak', { callbackUrl: '/app/account' });
+				}}
 				className={`${loadClass[orientation]}`}
-				onClick={closeMenu}>
+			>
 				Registrarse
-			</Link>
+			</Button>
 		</>
 	);
 }

@@ -1,0 +1,20 @@
+services:
+  oriana-web:
+    image: ghcr.io/oriana-tech-eas/oriana_web:main
+    restart: always
+    ports:
+      - 80
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.oriana-web.rule=Host(`oriana.com.py`)"
+      - "traefik.http.routers.oriana-web.entrypoints=websecure"
+      - "traefik.http.routers.oriana-web.tls.certresolver=letsencrypt"
+      - "traefik.http.services.oriana-web.loadbalancer.server.port=80"
+    expose:
+      - 80
+    networks:
+      - dokploy-network
+
+networks:
+  dokploy-network:
+    external: true

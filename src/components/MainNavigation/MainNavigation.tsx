@@ -14,8 +14,8 @@ const MainNavigation = ({
 	return (
 		<nav className={`mt-2 ${collapsed ? 'px-2' : 'px-3'}`}>
 			<ul>
-				{menuItems.map((item, index) => (
-					<li key={index}>
+				{menuItems.map((item) => (
+					<li key={item.href}>
 						<MenuItem href={item.href} collapsed={collapsed}>
 							{<item.icon className='size-5' />}
 							{item.text}

@@ -8,8 +8,8 @@ const Navigation = ({ brandImage, subMenu }: { brandImage: string, subMenu?: str
       </a>
       {subMenu && (
         <div className="hidden md:flex gap-4">
-          {subMenu.map((item, index) => (
-            <a key={index} href={`/${item.toLowerCase()}`} className="text-gray-700 hover:text-gray-900">
+          {subMenu.map((item) => (
+            <a key={`nav-${item.toLowerCase()}`} href={`/${item.toLowerCase()}`} className="text-gray-700 hover:text-gray-900">
               {item}
             </a>
           ))}

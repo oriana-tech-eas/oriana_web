@@ -162,13 +162,13 @@ const ProfileEditPage: NextPage = () => {
 						<PersonalInformation
 							formData={formData}
 							handleInputChange={handleInputChange}
-							user={user}
+							user={user || undefined}
 						/>
 
 						<ExtraInformation
 							formData={formData}
 							handleInputChange={handleInputChange}
-							user={user}
+							user={user || undefined}
 						/>
 					</div>
 
